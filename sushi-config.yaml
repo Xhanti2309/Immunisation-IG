@@ -37,16 +37,16 @@ releaseLabel: STU1
 # as IG.publisher.  The contact details and/or additional publishers
 # will be translated into IG.contact values.
 publisher:
-  name: Jembi Health Systems 
-  url: https://www.jembi.org
-  email: info@jembi.org
+  name: Ministry of Health 
+  url: https://www.moh.gov.zm
+  email: info@moh.gov.zm
 
 # ContactDetail is required by the template.
 contact:
-  - name: Richard Langford
+  - name: Chisanga Louis Siwale
     telecom:
       - system: email
-        value: richard.langford@jembi.org
+        value: chisanga.siwale@moh.gov.zm
         use: work
 
 # The jurisdiction can be a single item or a list. The FHIR Shorthand
