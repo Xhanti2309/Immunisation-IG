@@ -187,3 +187,34 @@ Title: "Vaccination site types in HPV (Proprietary)"
 Description: "A list of vaccination sites (posts) where the vaccination was administered."
 * ^experimental = false
 * include codes from system CSProprietaryHPVVaccinationSite
+
+
+ValueSet: UnderlyingConditions
+Id: underlying-conditions
+Title: "Underlying Conditions"
+Description: "A ValueSet containing Underlying conditions"
+* ^experimental = false
+* $SCT#840539006 "Human immunodeficiency virus infection"
+* $SCT#56265001 "Heart disease"
+* $SCT#13645005 "Chronic lung disease"
+* $SCT#73211009 "Diabetes Mellitus"
+* $SCT#38341003 "Hypertension"
+* $SCT#363346000 "Cancer"
+* $SCT#74400008 "Gastrointestinal disease"
+* $SCT#87628006 "Immunology condition"
+* $SCT#55342001 "Endocrine disorder"
+* $SCT#128599005 "Musculoskeletal disorder"
+* $SCT#281867008 "Neuromuscular disorder"
+* $SCT#9532001 "Skin disease"
+* $SCT#79654002 "Vascular disorder"
+
+ValueSet: CovaxObservations
+Id: covax-observations
+Title: "COVAX Observations"
+Description: "A ValueSet containing COVID19 vaccination observation"
+* ^experimental = false
+* $SCT#77386006 "Pregnant"
+* $SCT#60001007 "Not pregnant"
+* $SCT#169907004 "Lactating"
+* $SCT#60001007 "Not lactating"
+
