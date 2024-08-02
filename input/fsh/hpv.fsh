@@ -85,7 +85,7 @@ Description: "Records the vaccine administered to the patient."
 * extension[RegistrationDate] ^definition =
     "reason(s) why this should be supported."
 * administeredProduct 0..1 MS
-* administeredProduct only Reference(HPVVaccine)
+* administeredProduct only CodeableReference(HPVVaccine)
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
 

@@ -187,3 +187,22 @@ Title: "Vaccination site types in HPV (Proprietary)"
 Description: "A list of vaccination sites (posts) where the vaccination was administered."
 * ^experimental = false
 * include codes from system CSProprietaryHPVVaccinationSite
+
+ValueSet: VSUnderlyingCondition
+Id: vs-underlying-condition
+Title: "Underlying Conditions"
+Description:  "A list of possible underlying conditions."
+* ^experimental = false
+* $SCT#86406008 "Human immunodeficiency virus infection (disorder)"
+* $LNC#LA25673-7 "Med: Diabetes mellitus"
+* $LNC#LA22199-6 "Cardio/pulm: Chronic obstructive lung disease"
+* $LNC#LA25639-8 "Cardio/pulm: Heart failure"
+* $LNC#LA25642-2 "Cardio/pulm: Hypertensive disorder"
+* $LNC#LA22098-0 "Integumentary: Skin disorder (e.g. fungal rashes, contact dermatitis, moisture associated dermatitis, psoriasis )"
+* $LNC#LA25692-7 "MSK: Musculoskeletal pain"
+* $SCT#27550009 "Vascular disorder"
+* $LNC#54532-7 "Cancer"
+* $LNC#54534-3 "Gastrointestinal"
+* $LNC#LP31403-6 "Neuromuscular"
+* $LNC#LP345046-9 "Immunology"
+* $SCT#362969004 "Disorder of endocrine system"

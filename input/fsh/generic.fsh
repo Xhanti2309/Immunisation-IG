@@ -193,4 +193,4 @@ Description: "Records the vaccine administered to the patient."
 * protocolApplied.doseNumber 1..1
 * performer 1..*
 * performer.actor 1..1
-* performer.actor only Reference(SmartcareVaccinationSiteType or HPVVaccinationSiteType)
+* performer.actor only Reference(SmartcareVaccinationSiteType or HPVVaccinationSiteType or ServiceProvider)

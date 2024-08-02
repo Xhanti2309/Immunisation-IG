@@ -27,3 +27,13 @@ Invariant: Passport-HPV-1
 Description: "Only alphabetical characters and numbers are allowed. For example: AA01234567"
 Expression: "$this.matches('^[a-zA-Z]{2,3}[0-9]{8,12}$')"
 Severity: #error
+
+Invariant: DoseNumber-PositiveInt-1
+Description: "Only numbers are allowed."
+Expression: "$this.matches('[0-9]*')"
+Severity: #error
+
+Invariant: List-Medical-History-1
+Description: "The List SHALL have at least one of entry for slice \"PastMedicalHistory\" or \"CurrentMedicalInformation\"."
+Expression: "slice('http://openhie.org/fhir/zambia-immunizations/StructureDefinition/medical-history', 'PastMedicalHistory').count() + slice('http://openhie.org/fhir/zambia-immunizations/StructureDefinition/medical-history', 'CurrentMedicalInformation').count() > 0"
+Severity: #error
