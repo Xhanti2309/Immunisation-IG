@@ -3,3 +3,8 @@
 # This is a known issue that is being addressed: https://chat.fhir.org/#narrow/stream/179166-implementers/topic/IG 
 Unknown System 'http://id.who.int/icd11/mms' specified, so Concepts and Filters can't be checked (Details: A definition for CodeSystem 'http://id.who.int/icd11/mms' could not be found, so the code cannot be validated)
 Error from http://tx.fhir.org/r4: Unable to provide support for code system http://id.who.int/icd11/mms
+A definition for CodeSystem 'http://id.who.int/icd11/mms' could not be found, so the code cannot be validated
+Unable to check whether the code is in the value set 'http://openhie.org/fhir/zambia-immunizations/ValueSet/vs-vaccines|1.0.0' because the code system http://id.who.int/icd11/mms was not found
+# This is a known issue that is being addressed: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Reference.20to.20deprecated.20item
+Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+Reference to experimental CodeSystem http://hl7.org/fhir/event-status|5.0.0

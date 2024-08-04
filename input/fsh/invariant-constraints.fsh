@@ -23,7 +23,7 @@ Description: "Only special characters (+) and numbers are allowed. For example: 
 Expression: "$this.matches('^[+]?{1}[0-9]{10,12}$')"
 Severity: #error
 
-Invariant: Passport-HPV-1
+Invariant: Passport-1
 Description: "Only alphabetical characters and numbers are allowed. For example: AA01234567"
 Expression: "$this.matches('^[a-zA-Z]{2,3}[0-9]{8,12}$')"
 Severity: #error

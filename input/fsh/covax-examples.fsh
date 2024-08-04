@@ -38,12 +38,12 @@ Description: "Is used to document demographics and other administrative informat
 * extension[sex].valueCodeableConcept = $SEX#F
 
 Instance: RelatedPersonGuardianCovaxExample
-InstanceOf: RelatedPersonGuardianCovax
+InstanceOf: GuardianRelatedPerson
 Usage: #example
 Title: "Guardian Relation to Patient in HPV"
 Description: "A guardian to the patient."
 * identifier[PN][+].value = "PN15685241"
-* identifier[PN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-passport"
+* identifier[PN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/passport-number"
 * patient = Reference(CovaxImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Mike"
@@ -76,7 +76,7 @@ Description: "Records the current occupation for the patient"
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * subject = Reference (CovaxImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
-* valueString = "Accounts Manager"
+* valueCodeableConcept.text = "Accounts Manager"
 
 Instance: PregnancyStatusExample
 InstanceOf: PregnancyStatus
@@ -143,7 +143,7 @@ Description: "Used to capture the patient's allergic reaction after previous vac
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * code = $LNC#46249-9
 * code.text = "Allergic Reaction"
-* valueString = "Vomiting"
+* valueCodeableConcept.text = "Vomiting"
 * subject = Reference(CovaxImmunizationPatientExample)
 * encounter = Reference(CovaxTargetFacilityEncounterExample)
 * performer = Reference(OrganizationExample)
@@ -169,7 +169,7 @@ InstanceOf: UnderlyingCondition
 Usage: #example
 Title: "HIV Condition"
 Description: "Records whether the patient has HIV condition."
-* code = $SCT#86406008
+* code = $LNC#LA28577-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
 * subject = Reference(CovaxImmunizationPatientExample)
@@ -337,7 +337,7 @@ InstanceOf: UnderlyingCondition
 Usage: #example
 Title: "Endocrine Condition"
 Description: "Records whether the patient has endocrine condition."
-* code = $SCT#362969004
+* code = $LNC#LP56737-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
 * subject = Reference(CovaxImmunizationPatientExample)

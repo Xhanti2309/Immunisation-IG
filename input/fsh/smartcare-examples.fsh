@@ -133,7 +133,7 @@ Description: "Records the current occupation for the guardian"
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * subject = Reference (ImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
-* valueString = "Accounts Manager"
+* valueCodeableConcept.text = "Accounts Manager"
 
 Instance: SmartcareGuardianRelatedPersonExample
 InstanceOf: GuardianRelatedPerson
@@ -193,7 +193,7 @@ Description: "Records the current occupation for the spouse"
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * subject = Reference (ImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
-* valueString = ".NET Programmer"
+* valueCodeableConcept.text = ".NET Programmer"
 
 Instance: PatientHomeLanguageObservationExample
 InstanceOf: PatientHomeLanguageObservation

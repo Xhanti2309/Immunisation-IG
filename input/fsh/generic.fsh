@@ -34,6 +34,21 @@ Description: "Is used to document demographics and other administrative informat
 
 * birthDate 1..1
 
+* address 0..* MS
+* address ^definition =
+    "reason(s) why this should be supported."
+* address.city 0..1 MS
+* address.city ^definition =
+    "reason(s) why this should be supported."
+* address.line 0..* MS
+* address.line ^definition =
+    "reason(s) why this should be supported."
+* address.state 0..1 MS
+* address.state ^definition =
+    "reason(s) why this should be supported."
+* address.country 0..1 MS
+* address.country ^definition =
+    "reason(s) why this should be supported."
 * address.district 0..1 MS
 * address.district ^definition =
     "reason(s) why this should be supported."
@@ -53,6 +68,27 @@ Description: "Is used to document demographics and other administrative informat
 * managingOrganization ^definition =
     "reason(s) why this should be supported."
 * managingOrganization only Reference(ServiceProvider)
+
+* telecom 0..*
+* telecom ^slicing.discriminator.type = #value
+* telecom ^slicing.discriminator.path = "system"
+* telecom ^slicing.rules = #open
+* telecom ^slicing.ordered = false
+* telecom ^slicing.description = "Slice based on the type of telecom system."
+* telecom contains 
+    email 0..* MS and
+    phone 0..* MS
+* telecom ^definition =
+    "reason(s) why this should be supported."
+* telecom[email].value 1..1
+* telecom[email].system = #email
+* telecom[email] ^definition =
+    "reason(s) why this should be supported."
+
+* telecom[phone].value 1..1
+* telecom[phone].system  = #phone
+* telecom[phone] ^definition =
+    "reason(s) why this should be supported."
 
 Profile: ServiceProvider
 Parent: Organization
@@ -134,6 +170,21 @@ Parent: RelationToPatient
 Id: guardian-relation-to-patient
 Title: "Guardian Relation to Patient Profile"
 Description: "A guardian to the patient."
+* identifier 0..*
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier ^slicing.ordered = false
+* identifier ^slicing.description = "Slice based on the type of identifier."
+* identifier contains
+    PN 0..1 MS
+
+* identifier[PN] ^definition =
+    "reason(s) why this should be supported."
+* identifier[PN].value 1..1
+  * obeys Passport-1
+* identifier[PN].system = "http://openhie.org/fhir/zambia-immunizations/identifier/passport-number"
+
 * relationship 1..1
 * relationship = $PARENT_RELATIONSHIP_CODES#GUARD
 * name.given 1..1

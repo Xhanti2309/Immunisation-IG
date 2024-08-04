@@ -73,8 +73,9 @@ Description: "Records the current occupation for the spouse"
 * effectivePeriod 0..1 MS
 * effectivePeriod ^definition =
   "reason(s) why this should be supported."
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 
@@ -87,8 +88,9 @@ Description: "Records the current occupation for the guardian"
 * effectivePeriod 0..1 MS
 * effectivePeriod ^definition =
   "reason(s) why this should be supported."
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 

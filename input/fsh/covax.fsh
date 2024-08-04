@@ -3,12 +3,6 @@ Parent: ImmunizationPatient
 Id: covax-immunization-patient
 Title: "COVAX Immunization Patient"
 Description: "Patient profile for Covax use case"
-* identifier 1..*
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
-* identifier ^slicing.rules = #open
-* identifier ^slicing.ordered = false
-* identifier ^slicing.description = "Slice based on the type of identifier."
 * identifier contains
     CN 0..1 MS and
     PN 0..1 MS
@@ -21,72 +15,15 @@ Description: "Patient profile for Covax use case"
 * identifier[PN] ^definition =
     "reason(s) why this should be supported."
 * identifier[PN].value 1..1
-  * obeys Passport-HPV-1
+  * obeys Passport-1
 * identifier[PN].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-passport"
 
-* name 1..*
 * name.given 1..*
 * name.family 1..1
 
-* telecom 0..*
-* telecom ^slicing.discriminator.type = #value
-* telecom ^slicing.discriminator.path = "system"
-* telecom ^slicing.rules = #open
-* telecom ^slicing.ordered = false
-* telecom ^slicing.description = "Slice based on the type of telecom system."
-* telecom contains 
-    email 0..* MS and
-    phone 0..* MS
-* telecom ^definition =
-    "reason(s) why this should be supported."
-* telecom[email].value 1..1
-* telecom[email].system = #email
-* telecom[email] ^definition =
-    "reason(s) why this should be supported."
-
-* telecom[phone].value 1..1
-* telecom[phone].system  = #phone
-* telecom[phone] ^definition =
-    "reason(s) why this should be supported."
-
-* address 0..* MS
-* address ^definition =
-    "reason(s) why this should be supported."
-* address.city 0..1 MS
-* address.city ^definition =
-    "reason(s) why this should be supported."
-* address.line 0..* MS
-* address.line ^definition =
-    "reason(s) why this should be supported."
-* address.state 0..1 MS
-* address.state ^definition =
-    "reason(s) why this should be supported."
-* address.country 0..1 MS
-* address.country ^definition =
-    "reason(s) why this should be supported."
-
 * managingOrganization 1..1
 
-Profile: RelatedPersonGuardianCovax
-Parent: GuardianRelatedPerson
-Id: related-person-guardian-covax
-Title: "Related Person Guardian Covax"
-Description: "A guardian to the patient."
-
-* identifier 0..*
-* identifier ^slicing.discriminator.type = #value
-* identifier ^slicing.discriminator.path = "system"
-* identifier ^slicing.rules = #open
-* identifier ^slicing.ordered = false
-* identifier ^slicing.description = "Slice based on the type of identifier."
-* identifier contains
-    PN 0..1 MS
-
-* identifier[PN] ^definition =
-    "reason(s) why this should be supported."
-* identifier[PN].value 1..1
-  * obeys Passport-HPV-1
-* identifier[PN].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-passport"
+* link.other only Reference(GuardianRelatedPerson)
 
 Profile: PatientOccupationObservation
 Parent: GenericObservation
@@ -97,8 +34,9 @@ Description: "Records the current occupation for the patient"
 * effectivePeriod 0..1 MS
 * effectivePeriod ^definition =
   "reason(s) why this should be supported."
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 
@@ -179,8 +117,9 @@ Description: "Used to capture the patient's allergic reaction after previous vac
 * category.coding.code = #exam
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * code = $LNC#46249-9
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 
 Profile: VaccineNextDoseDate
 Parent: ImmunizationRecommendation
