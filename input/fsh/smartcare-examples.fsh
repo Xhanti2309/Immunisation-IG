@@ -59,7 +59,7 @@ Description: "A patient's highest education level attained"
 * performer = Reference(OrganizationExample)
 
 Instance: SmartcareTargetFacilityEncounterExample
-InstanceOf: TargetFacilityEncounter
+InstanceOf: SmartcareTargetFacilityEncounter
 Usage: #example
 Title: "Target Facility Encounter in Smartcare" 
 Description: "Represents the current facility at which the patient is receiving health services."
@@ -135,7 +135,7 @@ Description: "Records the current occupation for the guardian"
 * valueCodeableConcept.text = "Accounts Manager"
 
 Instance: SmartcareGuardianRelatedPersonExample
-InstanceOf: GuardianRelatedPerson
+InstanceOf: SmartcareGuardianRelatedPerson
 Usage: #example
 Title: "Guardian Relation to Patient in Smartcare"
 Description: "A guardian to the patient."

@@ -37,7 +37,7 @@ Description: "Is used to document demographics and other administrative informat
 * extension[sex].valueCodeableConcept = $SEX#F
 
 Instance: HPVGuardianRelatedPersonExample
-InstanceOf: GuardianRelatedPerson
+InstanceOf: HPVGuardianRelatedPerson
 Usage: #example
 Title: "Guardian Relation to Patient in HPV"
 Description: "A guardian to the patient."
@@ -64,7 +64,7 @@ Description: "This is to document whether the HPV patient has been observed to b
 * performer = Reference(OrganizationExample)
 
 Instance: HPVTargetFacilityEncounterExample
-InstanceOf: TargetFacilityEncounter
+InstanceOf: HPVTargetFacilityEncounter
 Usage: #example
 Title: "Target Facility Encounter in HPV" 
 Description: "Represents the current facility at which the patient is receiving health services."

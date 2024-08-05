@@ -38,7 +38,7 @@ Description: "This bundle contains all of the Smartcare resources."
 * insert BundleEntry(TargetFacilityEncounter, Encounter, reason why this should be supported.)
 * insert BundleEntry(SpouseRelatedPerson, Spouse, reason why this should be supported.)
 * insert BundleEntry(ChiefAtBirthRelatedPerson, ChiefAtBirth, reason why this should be supported.)
-* insert BundleEntry(GuardianRelatedPerson, Guardian, reason why this should be supported.)
+* insert BundleEntry(SmartcareGuardianRelatedPerson, Guardian, reason why this should be supported.)
 * insert BundleEntry(PatientMotherRelatedPerson, Mother, reason why this should be supported.)
 * insert BundleEntry(RelativeRelatedPerson, Relative, reason why this should be supported.)
 * insert BundleEntry(PatientFatherRelatedPerson, Father, reason why this should be supported.)

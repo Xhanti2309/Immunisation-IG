@@ -27,7 +27,7 @@ Description: "This bundle contains all of the HPV resources."
 
 * insert BundleEntry(HPVImmunizationPatient, Patient, reason why this should be supported.)
 * insert BundleEntry(TargetFacilityEncounter, Encounter, reason why this should be supported.)
-* insert BundleEntry(GuardianRelatedPerson, Guardian, reason why this should be supported.)
+* insert BundleEntry(HPVGuardianRelatedPerson, Guardian, reason why this should be supported.)
 * insert BundleEntry(HPVImmunocomprommised, Immunocomprommised, reason why this should be supported.)
 * insert BundleEntry(HPVImmunization, Vaccines, reason why this should be supported.)
 * insert BundleEntry(HPVVaccine, Medication, reason why this should be supported.)

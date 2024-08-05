@@ -23,7 +23,14 @@ Description: "Patient profile for Covax use case"
 
 * managingOrganization 1..1
 
-* link[RelatedPerson].other only Reference(GuardianRelatedPerson)
+* link[RelatedPerson].other only Reference(COVAXGuardianRelatedPerson)
+
+Profile: COVAXGuardianRelatedPerson
+Parent: GuardianRelatedPerson
+Id: covax-guardian-relation-to-patient
+Title: "Guardian Relation to Patient Profile (COVAX)"
+Description: "A guardian to the patient."
+* patient only Reference(CovaxImmunizationPatient)
 
 Profile: PatientOccupationObservation
 Parent: GenericObservation
@@ -39,6 +46,7 @@ Description: "Records the current occupation for the patient"
 * valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* subject only Reference(CovaxImmunizationPatient)
 
 Profile: PregnancyStatus
 Parent: GenericObservation
@@ -51,6 +59,7 @@ Description: "Represents whether the patient is currently pregnant."
 * code = $LNC#11449-6
 * value[x] only boolean
 * valueBoolean 1..1
+* subject only Reference(CovaxImmunizationPatient)
 
 Profile: LactationStatus
 Parent: GenericObservation
@@ -63,6 +72,7 @@ Description: "Represents whether the patient is currently lactating."
 * code = $SCT#290122005
 * value[x] only boolean
 * valueBoolean 1..1
+* subject only Reference(CovaxImmunizationPatient)
 
 Profile: CovaxImmunization
 Parent: Vaccines
@@ -79,6 +89,7 @@ Description: "Records the vaccine administered to the patient."
 * reaction.manifestation ^definition =
     "reason(s) why this should be supported."
 * reaction.manifestation only CodeableReference(VaccinationAllergicReaction)
+* patient only Reference(CovaxImmunizationPatient)
 
 Profile: CovaxVaccine
 Parent: Medication
@@ -106,7 +117,7 @@ Description: "Represents underlying conditions for the patient."
 * subject 1..1
 * subject only Reference(CovaxImmunizationPatient)
 * encounter 1..1
-* encounter only Reference(TargetFacilityEncounter)
+* encounter only Reference(COVAXTargetFacilityEncounter)
 * recordedDate 1..1
 
 Profile: VaccinationAllergicReaction
@@ -121,6 +132,7 @@ Description: "Used to capture the patient's allergic reaction after previous vac
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept.text 1..1
+* subject only Reference(CovaxImmunizationPatient)
 
 Profile: VaccineNextDoseDate
 Parent: ImmunizationRecommendation
@@ -160,7 +172,7 @@ Description: "Documents the medical history for the patient"
 * subject 1..1
 * subject only Reference(CovaxImmunizationPatient)
 * encounter 1..1
-* encounter only Reference(TargetFacilityEncounter)
+* encounter only Reference(COVAXTargetFacilityEncounter)
 * date 1..1
 * source 1..1
 * source only Reference(ServiceProvider)
@@ -170,3 +182,10 @@ Description: "Documents the medical history for the patient"
 * entry.flag.coding 1..1
 * entry.flag.coding = $LNC#LP74664-1
 * entry.item only Reference(UnderlyingCondition)
+
+Profile: COVAXTargetFacilityEncounter
+Parent: TargetFacilityEncounter
+Id: covax-target-facility-encounter
+Title: "Target Facility Encounter (COVAX)" 
+Description: "Represents the current facility at which the patient is receiving health services."
+* subject only Reference(CovaxImmunizationPatient)

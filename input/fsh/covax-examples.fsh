@@ -37,9 +37,9 @@ Description: "Is used to document demographics and other administrative informat
 * extension[sex].valueCodeableConcept = $SEX#F
 
 Instance: RelatedPersonGuardianCovaxExample
-InstanceOf: GuardianRelatedPerson
+InstanceOf: COVAXGuardianRelatedPerson
 Usage: #example
-Title: "Guardian Relation to Patient in HPV"
+Title: "Guardian Relation to Patient Profile (COVAX)"
 Description: "A guardian to the patient."
 * identifier[PN][+].value = "PN15685241"
 * identifier[PN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/passport-number"
@@ -50,7 +50,7 @@ Description: "A guardian to the patient."
 * relationship = $PARENT_RELATIONSHIP_CODES#GUARD
 
 Instance: CovaxTargetFacilityEncounterExample
-InstanceOf: TargetFacilityEncounter
+InstanceOf: COVAXTargetFacilityEncounter
 Usage: #example
 Title: "Target Facility Encounter in Covax" 
 Description: "Represents the current facility at which the patient is receiving health services."

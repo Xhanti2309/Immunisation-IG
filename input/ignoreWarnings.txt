@@ -8,3 +8,7 @@ Unable to check whether the code is in the value set 'http://openhie.org/fhir/za
 # This is a known issue that is being addressed: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Reference.20to.20deprecated.20item
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 Reference to experimental CodeSystem http://hl7.org/fhir/event-status|5.0.0
+
+# Not all Generic profiles need an example
+WARNING: StructureDefinition.where(url = 'http://openhie.org/fhir/zambia-immunizations/StructureDefinition/guardian-relation-to-patient'): The Implementation Guide contains no examples for this profile
+INFORMATION: StructureDefinition.where(url = 'http://openhie.org/fhir/zambia-immunizations/StructureDefinition/target-facility-encounter'): The Implementation Guide contains no explicitly linked examples for this profile

@@ -18,7 +18,14 @@ Description: "Is used to document demographics and other administrative informat
 * name.family 1..1
 * name.given 1..*
 
-* link[RelatedPerson].other only Reference(GuardianRelatedPerson)
+* link[RelatedPerson].other only Reference(HPVGuardianRelatedPerson)
+
+Profile: HPVGuardianRelatedPerson
+Parent: GuardianRelatedPerson
+Id: hpv-guardian-relation-to-patient
+Title: "Guardian Relation to Patient Profile (HPV)"
+Description: "A guardian to the patient."
+* patient only Reference(HPVImmunizationPatient)
 
 Profile: HPVImmunocomprommised
 Parent: GenericObservation
@@ -32,6 +39,7 @@ Description: "This is to document whether the patient is immunocompromised."
 * code.text = "Primary immunodeficiencies, unspecified"
 * effectiveDateTime 1..1
 * valueBoolean 1..1
+* subject only Reference(HPVImmunizationPatient)
 
 Profile: HPVImmunization
 Parent: Vaccines
@@ -45,6 +53,7 @@ Description: "Records the vaccine administered to the patient."
 * administeredProduct only CodeableReference(HPVVaccine)
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
+* patient only Reference(HPVImmunizationPatient)
 
 Profile: HPVVaccine
 Parent: Medication
@@ -55,3 +64,10 @@ Description: "Records the batch number for the vaccine."
 * code from VSVaccines (extensible)
 * batch 1..1
 * batch.lotNumber 1..1
+
+Profile: HPVTargetFacilityEncounter
+Parent: TargetFacilityEncounter
+Id: hpv-target-facility-encounter
+Title: "Target Facility Encounter (HPV)" 
+Description: "Represents the current facility at which the patient is receiving health services."
+* subject only Reference(HPVImmunizationPatient)
