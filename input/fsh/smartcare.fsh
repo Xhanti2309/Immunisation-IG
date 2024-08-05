@@ -24,7 +24,7 @@ Description: "Is used to document demographics and other administrative informat
     "reason(s) why this should be supported."
 * extension[religion].valueCodeableConcept.text 1..1
 
-* link.other only Reference(SpouseRelatedPerson or GuardianRelatedPerson or PatientMotherRelatedPerson or PatientFatherRelatedPerson or RelativeRelatedPerson or ChiefAtBirthRelatedPerson)
+* link[RelatedPerson].other only Reference(SpouseRelatedPerson or GuardianRelatedPerson or PatientMotherRelatedPerson or PatientFatherRelatedPerson or RelativeRelatedPerson or ChiefAtBirthRelatedPerson)
 
 * contact 0..* MS
 * contact ^definition =
@@ -213,12 +213,3 @@ Description: "A company that provides insurance to its subscribers that may incl
 * type 1..1
 * type = $LNC#64290-0
 * name 1..1
-
-Profile: SmartcareVaccinationSiteType
-Parent: Organization
-Id: smartcare-vaccination-site-type
-Title: "Vaccination site type in Smartcare"
-Description: "Indicates whether the vaccination was administered at the facility or at an outreach post."
-* name 1..1
-* type 1..1
-* type from VSProprietarySmartcareVaccinationSite (required)

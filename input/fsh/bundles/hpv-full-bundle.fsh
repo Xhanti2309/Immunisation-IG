@@ -31,4 +31,4 @@ Description: "This bundle contains all of the HPV resources."
 * insert BundleEntry(HPVImmunocomprommised, Immunocomprommised, reason why this should be supported.)
 * insert BundleEntry(HPVImmunization, Vaccines, reason why this should be supported.)
 * insert BundleEntry(HPVVaccine, Medication, reason why this should be supported.)
-* insert BundleEntry(HPVVaccinationSiteType, SiteType, reason why this should be supported.)
+* insert BundleEntry(ServiceProvider, SiteType, reason why this should be supported.)

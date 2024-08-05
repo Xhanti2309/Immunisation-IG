@@ -36,7 +36,7 @@ Description: "A bundle containing all HPV FHIR resources."
 * entry[Medication][=].request.method = #PUT
 * entry[Medication][=].request.url = "Medication/HPVVaccineExample"
 
-* entry[SiteType][+].fullUrl = "http://hapi-fhir:8080/Organization/HPVVaccinationSiteTypeExample"
-* entry[SiteType][=].resource = HPVVaccinationSiteTypeExample
+* entry[SiteType][+].fullUrl = "http://hapi-fhir:8080/Organization/HPVOrganizationPerformingVaccineExample"
+* entry[SiteType][=].resource = HPVOrganizationPerformingVaccineExample
 * entry[SiteType][=].request.method = #PUT
-* entry[SiteType][=].request.url = "Organization/HPVVaccinationSiteTypeExample"
+* entry[SiteType][=].request.url = "Organization/HPVOrganizationPerformingVaccineExample"

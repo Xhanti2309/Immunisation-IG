@@ -18,8 +18,7 @@ Description: "Is used to document demographics and other administrative informat
 * name[=].given[+] = "Jack"
 
 * birthDate = "2000-01-01"
-* link[+].other = Reference(HPVGuardianRelatedPersonExample)
-* link[=].type = #seealso
+* link[RelatedPerson][+].other = Reference(RelatedPersonGuardianCovaxExample)
 
 * telecom[email][+].value = "mail@mail.com"
 * telecom[email][=].system = #email

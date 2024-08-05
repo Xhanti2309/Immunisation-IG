@@ -32,8 +32,3 @@ Invariant: DoseNumber-PositiveInt-1
 Description: "Only numbers are allowed."
 Expression: "$this.matches('[0-9]*')"
 Severity: #error
-
-Invariant: List-Medical-History-1
-Description: "The List SHALL have at least one of entry for slice \"PastMedicalHistory\" or \"CurrentMedicalInformation\"."
-Expression: "slice('http://openhie.org/fhir/zambia-immunizations/StructureDefinition/medical-history', 'PastMedicalHistory').count() + slice('http://openhie.org/fhir/zambia-immunizations/StructureDefinition/medical-history', 'CurrentMedicalInformation').count() > 0"
-Severity: #error

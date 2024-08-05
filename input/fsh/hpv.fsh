@@ -18,7 +18,7 @@ Description: "Is used to document demographics and other administrative informat
 * name.family 1..1
 * name.given 1..*
 
-* link.other only Reference(GuardianRelatedPerson)
+* link[RelatedPerson].other only Reference(GuardianRelatedPerson)
 
 Profile: HPVImmunocomprommised
 Parent: GenericObservation
@@ -46,21 +46,12 @@ Description: "Records the vaccine administered to the patient."
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
 
-Profile: HPVVaccinationSiteType
-Parent: Organization
-Id: hpv-vaccination-site-type
-Title: "Vaccination site type in HPV"
-Description: "Indicates whether the vaccination was administered at the facility or at an outreach post."
-* name 1..1
-* type 1..1
-* type from VSProprietaryHPVVaccinationSite (required)
-
 Profile: HPVVaccine
 Parent: Medication
 Id: hpv-vaccine-details
 Title: "HPV Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code 1..1
-* code from VSProprietaryHPVVaccinationSite (extensible)
+* code from VSVaccines (extensible)
 * batch 1..1
 * batch.lotNumber 1..1

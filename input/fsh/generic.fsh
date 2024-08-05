@@ -58,11 +58,25 @@ Description: "Is used to document demographics and other administrative informat
 * maritalStatus 0..1 MS
 * maritalStatus ^definition =
     "reason(s) why this should be supported."
+
 * link 0..* MS
 * link ^definition =
     "reason(s) why this should be supported."
-* link.other 1..1
-* link.type = #seealso
+
+* link ^slicing.discriminator.type = #profile
+* link ^slicing.discriminator.path = "type"
+* link ^slicing.rules = #open
+* link ^slicing.ordered = false
+* link ^slicing.description = "Slicing link based on the type of profile."
+* link contains 
+    RelatedPerson 0..1 MS
+
+* link[RelatedPerson] ^definition =
+    "reason(s) why this should be supported."
+* link[RelatedPerson].other 1..1
+* link[RelatedPerson].other.type 1..1
+* link[RelatedPerson].other.type = #RelatedPerson
+* link[RelatedPerson].type = #seealso
 
 * managingOrganization 0..1 MS
 * managingOrganization ^definition =
@@ -110,8 +124,10 @@ Description: "An organization that provides healthcare services."
 * identifier[XX].type.coding.code = #XX
 * identifier[XX].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[XX].type.text = "Healthcare service provider identifier"
-* type 1..1
-* type = $LNC#78022-1
+* type 0..1 MS
+* type ^definition =
+  "reason(s) why this should be supported."
+* type from VSProprietaryVaccinationSiteTypes (extensible)
 * name 1..1
 
 Profile: RelationToPatient
@@ -189,7 +205,7 @@ Description: "A guardian to the patient."
 * relationship = $PARENT_RELATIONSHIP_CODES#GUARD
 * name.given 1..1
 * name.family 1..1
-* patient only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient)
+* patient only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient or CovaxImmunizationPatient)
 
 Profile: TargetFacilityEncounter
 Parent: Encounter
@@ -201,7 +217,7 @@ Description: "Represents the current facility at which the patient is receiving 
 * class.coding.code = #AMB
 * class.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
 * subject 1..1
-* subject only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient)
+* subject only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient or CovaxImmunizationPatient)
 * actualPeriod 1..1
 * serviceProvider 0..1 MS
 * serviceProvider only Reference(ServiceProvider)
@@ -219,7 +235,7 @@ Description: "This profile acts as a base profile from which more observation pr
 * encounter 1..1
 * encounter only Reference(TargetFacilityEncounter)
 * subject 1..1
-* subject only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient)
+* subject only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient or CovaxImmunizationPatient)
 * performer 0..*
 * performer ^definition =
   "reason(s) why this should be supported."
@@ -233,7 +249,7 @@ Description: "Records the vaccine administered to the patient."
 * vaccineCode 1..1
 * vaccineCode from VSVaccines (extensible)
 * patient 1..1
-* patient only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient)
+* patient only Reference(SmartcareImmunizationPatient or HPVImmunizationPatient or CovaxImmunizationPatient)
 * occurrenceDateTime 1..1
 * occurrenceDateTime only dateTime
 * encounter 1..1
@@ -244,4 +260,4 @@ Description: "Records the vaccine administered to the patient."
 * protocolApplied.doseNumber 1..1
 * performer 1..*
 * performer.actor 1..1
-* performer.actor only Reference(SmartcareVaccinationSiteType or HPVVaccinationSiteType or ServiceProvider)
+* performer.actor only Reference(ServiceProvider)

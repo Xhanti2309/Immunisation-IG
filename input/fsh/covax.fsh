@@ -23,7 +23,7 @@ Description: "Patient profile for Covax use case"
 
 * managingOrganization 1..1
 
-* link.other only Reference(GuardianRelatedPerson)
+* link[RelatedPerson].other only Reference(GuardianRelatedPerson)
 
 Profile: PatientOccupationObservation
 Parent: GenericObservation
@@ -75,7 +75,9 @@ Description: "Records the vaccine administered to the patient."
 * administeredProduct only CodeableReference(CovaxVaccine)
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
-* reaction.manifestation 0..1
+* reaction.manifestation 0..1 MS
+* reaction.manifestation ^definition =
+    "reason(s) why this should be supported."
 * reaction.manifestation only CodeableReference(VaccinationAllergicReaction)
 
 Profile: CovaxVaccine
@@ -93,7 +95,6 @@ Parent: Condition
 Id: underlying-condition
 Title: "Underlying Condition"
 Description: "Represents underlying conditions for the patient."
-* clinicalStatus 1..1
 * code 1..1
 * code from VSUnderlyingCondition (required)
 * code.text 0..1 MS

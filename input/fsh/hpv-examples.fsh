@@ -18,8 +18,7 @@ Description: "Is used to document demographics and other administrative informat
 * name[=].given[+] = "Jack"
 
 * birthDate = "2000-01-01"
-* link[+].other = Reference(HPVGuardianRelatedPersonExample)
-* link[=].type = #seealso
+* link[RelatedPerson][+].other = Reference(HPVGuardianRelatedPersonExample)
 
 * telecom[email][+].value = "mail@mail.com"
 * telecom[email][=].system = #email
@@ -72,7 +71,7 @@ Description: "Represents the current facility at which the patient is receiving 
 * status = #completed
 * class.coding.code = #AMB
 * class.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-* subject = Reference(ImmunizationPatientExample)
+* subject = Reference(HPVImmunizationPatientExample)
 * actualPeriod.start = "2022-12-01"
 * actualPeriod.end = "2023-01-20"
 * serviceProvider = Reference(OrganizationExample)
@@ -87,7 +86,7 @@ Description: "Records the vaccine administered to the patient."
 * vaccineCode = $ICD11#J07BM01
 * patient = Reference(HPVImmunizationPatientExample)
 * encounter = Reference(HPVTargetFacilityEncounterExample)
-* performer.actor = Reference(OrganizationExample)
+* performer.actor = Reference(HPVOrganizationPerformingVaccineExample)
 * protocolApplied.doseNumber = "DN0000000"
 * extension[RegistrationDate].valueDateTime = "2024-01-31"
 * administeredProduct.reference = Reference(HPVVaccineExample)
@@ -100,11 +99,11 @@ Description: "Records the batch number for the vaccine."
 * code = $ICD11#J07BM01
 * batch.lotNumber = "123"
 
-Instance: HPVVaccinationSiteTypeExample
-InstanceOf: HPVVaccinationSiteType
+Instance: HPVOrganizationPerformingVaccineExample
+InstanceOf: ServiceProvider
 Usage: #example
-Title: "Vaccination site type in HPV"
-Description: "Indicates whether the vaccination was administered at the facility or at an outreach post."
+Title: "Administering Organization in HPV"
+Description: "Indicates the organization where the vaccince was administered."
 * type.coding.system = "http://openhie.org/fhir/zambia-immunizations/CodeSystem/cs-proprietary-hpv-vaccination-site"
 * type.coding.code = #Community
 * name = "facility name"
