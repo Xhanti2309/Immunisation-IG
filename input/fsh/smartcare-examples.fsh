@@ -22,8 +22,7 @@ Description: "Is used to document demographics and other administrative informat
 * maritalStatus.coding.code = #M
 * maritalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
 * extension[bornInZambia].valueBoolean = true
-* link[+].other = Reference(SpouseRelatedPersonExample)
-* link[=].type = #seealso
+* link[RelatedPerson][+].other = Reference(SpouseRelatedPersonExample)
 * extension[religion].valueCodeableConcept.coding.code = #1013
 * extension[religion].valueCodeableConcept.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ReligiousAffiliation"
 * extension[religion].valueCodeableConcept.text = "Christian (non-Catholic, non-specific)"
@@ -60,7 +59,7 @@ Description: "A patient's highest education level attained"
 * performer = Reference(OrganizationExample)
 
 Instance: SmartcareTargetFacilityEncounterExample
-InstanceOf: TargetFacilityEncounter
+InstanceOf: SmartcareTargetFacilityEncounter
 Usage: #example
 Title: "Target Facility Encounter in Smartcare" 
 Description: "Represents the current facility at which the patient is receiving health services."
@@ -133,10 +132,10 @@ Description: "Records the current occupation for the guardian"
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * subject = Reference (ImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
-* valueString = "Accounts Manager"
+* valueCodeableConcept.text = "Accounts Manager"
 
 Instance: SmartcareGuardianRelatedPersonExample
-InstanceOf: GuardianRelatedPerson
+InstanceOf: SmartcareGuardianRelatedPerson
 Usage: #example
 Title: "Guardian Relation to Patient in Smartcare"
 Description: "A guardian to the patient."
@@ -193,7 +192,7 @@ Description: "Records the current occupation for the spouse"
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * subject = Reference (ImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
-* valueString = ".NET Programmer"
+* valueCodeableConcept.text = ".NET Programmer"
 
 Instance: PatientHomeLanguageObservationExample
 InstanceOf: PatientHomeLanguageObservation
@@ -248,10 +247,10 @@ Description: "Records the vaccine administered to the patient."
 * occurrenceDateTime = "2022-11-30"
 * encounter = Reference(SmartcareTargetFacilityEncounterExample)
 * protocolApplied.doseNumber = "0"
-* performer.actor = Reference(SmartcareVaccinationSiteTypeExample)
+* performer.actor = Reference(SmartcareOrganizationPerformingVaccineExample)
 
-Instance: SmartcareVaccinationSiteTypeExample
-InstanceOf: SmartcareVaccinationSiteType
+Instance: SmartcareOrganizationPerformingVaccineExample
+InstanceOf: ServiceProvider
 Usage: #example
 Title: "Vaccination site type"
 Description: "Indicates whether the vaccination was administered at the facility or at an outreach post."

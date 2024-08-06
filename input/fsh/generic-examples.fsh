@@ -19,8 +19,7 @@ Description: "Is used to document demographics and other administrative informat
 * maritalStatus.coding.code = #M
 * maritalStatus.coding.system = "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
 
-* link[+].other = Reference(SpouseRelatedPersonExample)
-* link[=].type = #seealso
+* link[RelatedPerson][+].other = Reference(SpouseRelatedPersonExample)
 
 * managingOrganization = Reference(OrganizationExample)
 * extension[sex].valueCodeableConcept = $SEX#F
@@ -35,5 +34,4 @@ Description: "An organization that provides healthcare services."
 * identifier[XX].type.coding.code = #XX
 * identifier[XX].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[XX].type.text = "Healthcare service provider identifier"
-* type = $LNC#78022-1
 * name = "Facility one"

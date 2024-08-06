@@ -23,22 +23,6 @@ Description: "A list of proprietary education levels."
 * #Primary "Primary"
 * #SeniorSecondary "Senior Secondary"
 
-CodeSystem: CSProprietarySmartcareVaccinationSite
-Id: cs-proprietary-smartcare-vaccination-site
-Title: "Vaccination site types in Smartcare (Proprietary)"
-Description: "A list of vaccination sites (posts) where the vaccination was administered."
-* ^experimental = false
-* ^caseSensitive = true
-* #Static "Static"
-* #Outreach "Outreach"
-
-ValueSet: VSProprietarySmartcareVaccinationSite
-Id: vs-proprietary-smartcare-vaccination-site
-Title: "Vaccination site types in Smartcare (Proprietary)"
-Description: "A list of vaccination sites (posts) where the vaccination was administered."
-* ^experimental = false
-* include codes from system CSProprietarySmartcareVaccinationSite
-
 ValueSet: VSProprietaryEducationLevelAttained
 Id: vs-proprietary-education-level-attained
 Title: "Patient's highest education level attained (Proprietary)"
@@ -171,19 +155,48 @@ Description: "A List of Administrative Sex codes."
 * $SEX#M "Male"
 * $SEX#F "Female"
 
+CodeSystem: CSProprietarySmartcareVaccinationSite
+Id: cs-proprietary-smartcare-vaccination-site
+Title: "Vaccination site types in Smartcare (Proprietary)"
+Description: "A list of vaccination sites (posts) where the vaccination was administered."
+* ^experimental = false
+* ^caseSensitive = true
+* #Static "Static" "Administering site type in Smartcare"
+* #Outreach "Outreach" "Administering site in Smartcare"
+
 CodeSystem: CSProprietaryHPVVaccinationSite
 Id: cs-proprietary-hpv-vaccination-site
 Title: "Vaccination site types in HPV (Proprietary)"
 Description: "A list of vaccination sites (posts) where the vaccination was administered."
 * ^experimental = false
 * ^caseSensitive = true
-* #Community "Community"
-* #Facility "Facility"
-* #School "School"
+* #Community "Community" "Administering site type in HPV"
+* #Facility "Facility" "Administering site type in HPV"
+* #School "School" "Administering site type in HPV"
 
-ValueSet: VSProprietaryHPVVaccinationSite
-Id: vs-proprietary-hpv-vaccination-site
-Title: "Vaccination site types in HPV (Proprietary)"
+ValueSet: VSProprietaryVaccinationSiteTypes
+Id: vs-proprietary-vaccination-site-type
+Title: "Vaccination site types (Proprietary)"
 Description: "A list of vaccination sites (posts) where the vaccination was administered."
 * ^experimental = false
+* include codes from system CSProprietarySmartcareVaccinationSite
 * include codes from system CSProprietaryHPVVaccinationSite
+
+ValueSet: VSUnderlyingCondition
+Id: vs-underlying-condition
+Title: "Underlying Conditions"
+Description:  "A list of possible underlying conditions."
+* ^experimental = false
+* $LNC#LA28577-7 "Human immunodeficiency virus (HIV)"
+* $LNC#LA25673-7 "Med: Diabetes mellitus"
+* $LNC#LA22199-6 "Cardio/pulm: Chronic obstructive lung disease"
+* $LNC#LA25639-8 "Cardio/pulm: Heart failure"
+* $LNC#LA25642-2 "Cardio/pulm: Hypertensive disorder"
+* $LNC#LA22098-0 "Integumentary: Skin disorder (e.g. fungal rashes, contact dermatitis, moisture associated dermatitis, psoriasis )"
+* $LNC#LA25692-7 "MSK: Musculoskeletal pain"
+* $SCT#27550009 "Vascular disorder"
+* $LNC#54532-7 "Cancer"
+* $LNC#54534-3 "Gastrointestinal"
+* $LNC#LP31403-6 "Neuromuscular"
+* $LNC#LP345046-9 "Immunology"
+* $LNC#LP56737-7 "Endocrine disorders"

@@ -24,7 +24,7 @@ Description: "Is used to document demographics and other administrative informat
     "reason(s) why this should be supported."
 * extension[religion].valueCodeableConcept.text 1..1
 
-* link.other only Reference(SpouseRelatedPerson or GuardianRelatedPerson or PatientMotherRelatedPerson or PatientFatherRelatedPerson or RelativeRelatedPerson or ChiefAtBirthRelatedPerson)
+* link[RelatedPerson].other only Reference(SpouseRelatedPerson or SmartcareGuardianRelatedPerson or PatientMotherRelatedPerson or PatientFatherRelatedPerson or RelativeRelatedPerson or ChiefAtBirthRelatedPerson)
 
 * contact 0..* MS
 * contact ^definition =
@@ -35,6 +35,13 @@ Description: "Is used to document demographics and other administrative informat
 * contact.name.family 0..1 MS
 * contact.name.family ^definition =
     "reason(s) why this should be supported."
+
+Profile: SmartcareGuardianRelatedPerson
+Parent: GuardianRelatedPerson
+Id: smartcare-guardian-relation-to-patient
+Title: "Guardian Relation to Patient Profile (Smartcare)"
+Description: "A guardian to the patient."
+* patient only Reference(SmartcareImmunizationPatient)
 
 Profile: SpouseRelatedPerson
 Parent: RelationToPatient
@@ -63,6 +70,7 @@ Description: "A patient's highest education level attained"
 * valueCodeableConcept from VSProprietaryEducationLevelAttained (extensible)
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* subject only Reference(SmartcareImmunizationPatient)
 
 Profile: SpouseOccupationObservation
 Parent: GenericObservation
@@ -73,10 +81,12 @@ Description: "Records the current occupation for the spouse"
 * effectivePeriod 0..1 MS
 * effectivePeriod ^definition =
   "reason(s) why this should be supported."
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* subject only Reference(SmartcareImmunizationPatient)
 
 Profile: GuardianOccupationObservation
 Parent: GenericObservation
@@ -87,10 +97,12 @@ Description: "Records the current occupation for the guardian"
 * effectivePeriod 0..1 MS
 * effectivePeriod ^definition =
   "reason(s) why this should be supported."
-* value[x] only string
-* valueString 1..1
+* value[x] only CodeableConcept
+* valueCodeableConcept 1..1
+* valueCodeableConcept.text 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* subject only Reference(SmartcareImmunizationPatient)
 
 Profile: DatePatientFirstMarriedObservation
 Parent: Observation
@@ -107,7 +119,7 @@ Description: "Records the date when the patient was first married"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
 * encounter 1..1
-* encounter only Reference(TargetFacilityEncounter)
+* encounter only Reference(SmartcareTargetFacilityEncounter)
 * subject 1..1
 * subject only Reference(SmartcareImmunizationPatient)
 * performer 0..*
@@ -171,6 +183,7 @@ Description: "Records the home language for the patient"
 * valueCodeableConcept from VSHomeLanguage (extensible)
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* subject only Reference(SmartcareImmunizationPatient)
 
 Profile: MedicalInsurance
 Parent: Coverage
@@ -212,11 +225,9 @@ Description: "A company that provides insurance to its subscribers that may incl
 * type = $LNC#64290-0
 * name 1..1
 
-Profile: SmartcareVaccinationSiteType
-Parent: Organization
-Id: smartcare-vaccination-site-type
-Title: "Vaccination site type in Smartcare"
-Description: "Indicates whether the vaccination was administered at the facility or at an outreach post."
-* name 1..1
-* type 1..1
-* type from VSProprietarySmartcareVaccinationSite (required)
+Profile: SmartcareTargetFacilityEncounter
+Parent: TargetFacilityEncounter
+Id: smartcare-target-facility-encounter
+Title: "Target Facility Encounter (Smartcare)" 
+Description: "Represents the current facility at which the patient is receiving health services."
+* subject only Reference(SmartcareImmunizationPatient)
