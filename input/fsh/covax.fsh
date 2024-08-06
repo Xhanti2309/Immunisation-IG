@@ -85,10 +85,6 @@ Description: "Records the vaccine administered to the patient."
 * administeredProduct only CodeableReference(CovaxVaccine)
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
-* reaction.manifestation 0..1 MS
-* reaction.manifestation ^definition =
-    "reason(s) why this should be supported."
-* reaction.manifestation only CodeableReference(VaccinationAllergicReaction)
 * patient only Reference(CovaxImmunizationPatient)
 
 Profile: CovaxVaccine
@@ -119,20 +115,6 @@ Description: "Represents underlying conditions for the patient."
 * encounter 1..1
 * encounter only Reference(COVAXTargetFacilityEncounter)
 * recordedDate 1..1
-
-Profile: VaccinationAllergicReaction
-Parent: GenericObservation
-Id: vaccination-allergic-reaction
-Title: "Vaccination Allergic Reaction"
-Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
-* category 1..1
-* category.coding.code = #exam
-* category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* code = $LNC#46249-9
-* value[x] only CodeableConcept
-* valueCodeableConcept 1..1
-* valueCodeableConcept.text 1..1
-* subject only Reference(CovaxImmunizationPatient)
 
 Profile: VaccineNextDoseDate
 Parent: ImmunizationRecommendation
@@ -189,3 +171,28 @@ Id: covax-target-facility-encounter
 Title: "Target Facility Encounter (COVAX)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * subject only Reference(CovaxImmunizationPatient)
+
+Profile: VaccinationAllergicReaction
+Parent: AllergyIntolerance
+Id: vaccination-allergic-reaction
+Title: "Allergy Intolerance - Vaccination Allergic Reaction"
+Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+* type 0..1 MS
+* type = $AllergyType#allergy
+* type ^definition =
+  "reason(s) why this should be supported."
+* category 0..1 MS
+* category = $AllergyCategory#medication
+* category ^definition =
+  "reason(s) why this should be supported."
+* code 1..1
+* code = $LNC#31044-1
+* patient only Reference(CovaxImmunizationPatient)
+* encounter 1..1
+* encounter only Reference(COVAXTargetFacilityEncounter)
+* onsetDateTime 0..1 MS
+* onsetDateTime ^definition =
+  "reason(s) why this should be supported."
+* recordedDate 0..1 MS
+* recordedDate ^definition =
+  "reason(s) why this should be supported."

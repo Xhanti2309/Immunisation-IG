@@ -122,7 +122,6 @@ Description: "Records the vaccine administered to the patient."
 * performer.actor = Reference(OrganizationExample)
 * protocolApplied.doseNumber = "2654564"
 * administeredProduct.reference = Reference(CovaxVaccineExample)
-* reaction.manifestation.reference = Reference(VaccinationAllergicReactionExample)
 
 Instance: CovaxVaccineExample
 InstanceOf: CovaxVaccine
@@ -131,22 +130,6 @@ Title: "Covax Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code = $ICD11#XM1G90
 * batch.lotNumber = "123"
-
-Instance: VaccinationAllergicReactionExample
-InstanceOf: VaccinationAllergicReaction
-Usage: #example
-Title: "Vaccination Allergic Reaction"
-Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
-* status = #final
-* category.coding.code = #exam
-* category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* code = $LNC#46249-9
-* code.text = "Allergic Reaction"
-* valueCodeableConcept.text = "Vomiting"
-* subject = Reference(CovaxImmunizationPatientExample)
-* encounter = Reference(CovaxTargetFacilityEncounterExample)
-* performer = Reference(OrganizationExample)
-* effectiveDateTime = "2024-01-25"
 
 Instance: VaccineNextDoseDateExample
 InstanceOf: VaccineNextDoseDate
@@ -363,3 +346,16 @@ Description: "Documents the medical history for the patient"
 * entry[+].item = Reference(ImmunologyConditionExample)
 * entry[+].item = Reference(SkinConditionExample)
 * entry[+].item = Reference(NeuromuscularConditionExample)
+
+Instance: VaccinationAllergicReactionExample
+InstanceOf: VaccinationAllergicReaction
+Usage: #example
+Title: "Allergy Intolerance - Vaccination Allergic Reaction"
+Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+* type = $AllergyType#allergy
+* category = $AllergyCategory#medication
+* code = $LNC#31044-1
+* patient = Reference(CovaxImmunizationPatientExample)
+* encounter = Reference(CovaxTargetFacilityEncounterExample)
+* onsetDateTime = "2024-01-05"
+* recordedDate = "2024-04-15"
