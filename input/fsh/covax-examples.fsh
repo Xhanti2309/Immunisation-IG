@@ -122,7 +122,7 @@ Description: "Records the vaccine administered to the patient."
 * performer.actor = Reference(OrganizationExample)
 * protocolApplied.doseNumber = "2654564"
 * administeredProduct.reference = Reference(CovaxVaccineExample)
-* reaction.manifestation.reference = Reference(VaccinationAllergicReactionExample)
+* reaction.manifestation.reference = Reference(ImmunizationAllergyExample)
 
 Instance: CovaxVaccineExample
 InstanceOf: CovaxVaccine
@@ -132,15 +132,15 @@ Description: "Records the batch number for the vaccine."
 * code = $ICD11#XM1G90
 * batch.lotNumber = "123"
 
-Instance: VaccinationAllergicReactionExample
-InstanceOf: VaccinationAllergicReaction
+Instance: ImmunizationAllergyExample
+InstanceOf: ImmunizationAllergy
 Usage: #example
-Title: "Vaccination Allergic Reaction"
-Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+Title: "Observation - Immunization Allergy"
+Description: "Used to capture the actual allergic reaction that is a result of Covax vaccination."
 * status = #final
 * category.coding.code = #exam
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* code = $LNC#46249-9
+* code = $LNC#31044-1
 * code.text = "Allergic Reaction"
 * valueCodeableConcept.text = "Vomiting"
 * subject = Reference(CovaxImmunizationPatientExample)
@@ -363,3 +363,18 @@ Description: "Documents the medical history for the patient"
 * entry[+].item = Reference(ImmunologyConditionExample)
 * entry[+].item = Reference(SkinConditionExample)
 * entry[+].item = Reference(NeuromuscularConditionExample)
+
+Instance: VaccinationAllergicReactionExample
+InstanceOf: VaccinationAllergicReaction
+Usage: #example
+Title: "Allergy Intolerance - Vaccination Allergic Reaction"
+Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+* type = $AllergyType#allergy
+* category = $AllergyCategory#medication
+* code = $LNC#31044-1
+* patient = Reference(CovaxImmunizationPatientExample)
+* encounter = Reference(CovaxTargetFacilityEncounterExample)
+* onsetDateTime = "2024-01-05"
+* recordedDate = "2024-04-15"
+* reaction.substance = $ICD11#XM1G90
+* reaction.manifestation.reference = Reference(ImmunizationAllergyExample)

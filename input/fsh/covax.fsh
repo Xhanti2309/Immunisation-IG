@@ -85,10 +85,11 @@ Description: "Records the vaccine administered to the patient."
 * administeredProduct only CodeableReference(CovaxVaccine)
 * administeredProduct ^definition =
     "reason(s) why this should be supported."
-* reaction.manifestation 0..1 MS
-* reaction.manifestation ^definition =
+* reaction 0..1 MS
+* reaction ^definition =
     "reason(s) why this should be supported."
-* reaction.manifestation only CodeableReference(VaccinationAllergicReaction)
+* reaction.manifestation 1..1
+* reaction.manifestation only CodeableReference(ImmunizationAllergy)
 * patient only Reference(CovaxImmunizationPatient)
 
 Profile: CovaxVaccine
@@ -120,15 +121,15 @@ Description: "Represents underlying conditions for the patient."
 * encounter only Reference(COVAXTargetFacilityEncounter)
 * recordedDate 1..1
 
-Profile: VaccinationAllergicReaction
+Profile: ImmunizationAllergy
 Parent: GenericObservation
-Id: vaccination-allergic-reaction
-Title: "Vaccination Allergic Reaction"
-Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+Id: immunization-allergy
+Title: "Observation - Immunization Allergy" 
+Description: "Used to capture the actual allergic reaction that is a result of Covax vaccination."
 * category 1..1
 * category.coding.code = #exam
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* code = $LNC#46249-9
+* code = $LNC#31044-1
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
 * valueCodeableConcept.text 1..1
@@ -189,3 +190,27 @@ Id: covax-target-facility-encounter
 Title: "Target Facility Encounter (COVAX)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * subject only Reference(CovaxImmunizationPatient)
+
+Profile: VaccinationAllergicReaction
+Parent: AllergyIntolerance
+Id: vaccination-allergic-reaction
+Title: "Allergy Intolerance - Vaccination Allergic Reaction"
+Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
+* type 1..1
+* type = $AllergyType#allergy
+* category 1..1
+* category = $AllergyCategory#medication
+* code 1..1
+* code = $LNC#31044-1
+* patient only Reference(CovaxImmunizationPatient)
+* encounter 1..1
+* encounter only Reference(COVAXTargetFacilityEncounter)
+* onsetDateTime 1..1
+* recordedDate 0..1 MS
+* recordedDate ^definition =
+  "reason(s) why this should be supported."
+* reaction 1..*
+* reaction.substance 1..1
+* reaction.substance from VSVaccines (extensible)
+* reaction.manifestation 1..*
+* reaction.manifestation only CodeableReference(ImmunizationAllergy)

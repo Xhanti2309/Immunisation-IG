@@ -6,6 +6,8 @@ Alias: $PROPRIETARY_EDU_LEVEL = http://openhie.org/fhir/zambia-immunizations/Cod
 Alias: $PARENT_RELATIONSHIP_CODES = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 Alias: $ICD11 = http://id.who.int/icd11/mms
 Alias: $HumanName = http://hl7.org/fhir/name-use
+Alias: $AllergyType = http://hl7.org/fhir/allergy-intolerance-type
+Alias: $AllergyCategory = http://hl7.org/fhir/allergy-intolerance-category
 
 CodeSystem: CSProprietaryEducationLevelAttained
 Id: cs-proprietary-education-level-attained
