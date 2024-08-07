@@ -122,6 +122,7 @@ Description: "Records the vaccine administered to the patient."
 * performer.actor = Reference(OrganizationExample)
 * protocolApplied.doseNumber = "2654564"
 * administeredProduct.reference = Reference(CovaxVaccineExample)
+* reaction.manifestation.reference = Reference(ImmunizationAllergyExample)
 
 Instance: CovaxVaccineExample
 InstanceOf: CovaxVaccine
@@ -130,6 +131,22 @@ Title: "Covax Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code = $ICD11#XM1G90
 * batch.lotNumber = "123"
+
+Instance: ImmunizationAllergyExample
+InstanceOf: ImmunizationAllergy
+Usage: #example
+Title: "Observation - Immunization Allergy"
+Description: "Used to capture the actual allergic reaction that is a result of Covax vaccination."
+* status = #final
+* category.coding.code = #exam
+* category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
+* code = $LNC#31044-1
+* code.text = "Allergic Reaction"
+* valueCodeableConcept.text = "Vomiting"
+* subject = Reference(CovaxImmunizationPatientExample)
+* encounter = Reference(CovaxTargetFacilityEncounterExample)
+* performer = Reference(OrganizationExample)
+* effectiveDateTime = "2024-01-25"
 
 Instance: VaccineNextDoseDateExample
 InstanceOf: VaccineNextDoseDate
@@ -359,3 +376,5 @@ Description: "Used to capture the patient's allergic reaction after previous vac
 * encounter = Reference(CovaxTargetFacilityEncounterExample)
 * onsetDateTime = "2024-01-05"
 * recordedDate = "2024-04-15"
+* reaction.substance = $ICD11#XM1G90
+* reaction.manifestation.reference = Reference(ImmunizationAllergyExample)
