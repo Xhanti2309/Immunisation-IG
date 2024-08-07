@@ -177,22 +177,21 @@ Parent: AllergyIntolerance
 Id: vaccination-allergic-reaction
 Title: "Allergy Intolerance - Vaccination Allergic Reaction"
 Description: "Used to capture the patient's allergic reaction after previous vaccine dose."
-* type 0..1 MS
+* type 1..1
 * type = $AllergyType#allergy
-* type ^definition =
-  "reason(s) why this should be supported."
-* category 0..1 MS
+* category 1..1
 * category = $AllergyCategory#medication
-* category ^definition =
-  "reason(s) why this should be supported."
 * code 1..1
 * code = $LNC#31044-1
 * patient only Reference(CovaxImmunizationPatient)
 * encounter 1..1
 * encounter only Reference(COVAXTargetFacilityEncounter)
-* onsetDateTime 0..1 MS
-* onsetDateTime ^definition =
-  "reason(s) why this should be supported."
+* onsetDateTime 1..1
 * recordedDate 0..1 MS
 * recordedDate ^definition =
   "reason(s) why this should be supported."
+* reaction 1..*
+* reaction.substance 1..1
+* reaction.substance from VSVaccines (extensible)
+* reaction.manifestation 1..*
+* reaction.manifestation only Reference()
