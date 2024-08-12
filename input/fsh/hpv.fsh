@@ -1,7 +1,7 @@
 Profile: HPVImmunizationPatient
 Parent: ImmunizationPatient
 Id: hpv-immunization-patient
-Title: "Patient Profile for HPV Immunizations"
+Title: "Patient - HPV Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier contains
     CN 1..1 and
@@ -23,14 +23,14 @@ Description: "Is used to document demographics and other administrative informat
 Profile: HPVGuardianRelatedPerson
 Parent: GuardianRelatedPerson
 Id: hpv-guardian-relation-to-patient
-Title: "Guardian Relation to Patient Profile (HPV)"
+Title: "Related Person - Guardian Relation to Patient Profile (HPV)"
 Description: "A guardian to the patient."
 * patient only Reference(HPVImmunizationPatient)
 
 Profile: HPVImmunocomprommised
 Parent: GenericObservation
 Id: hpv-immunocomprommised
-Title: "HPV Immunocomprommised"
+Title: "Observation - HPV Immunocomprommised"
 Description: "This is to document whether the patient is immunocompromised."
 * status = #final
 * category.coding.code = #laboratory
@@ -44,7 +44,7 @@ Description: "This is to document whether the patient is immunocompromised."
 Profile: HPVImmunization
 Parent: Vaccines
 Id: hpv-immunization
-Title: "HPV Immunization"
+Title: "Immunization - HPV Immunization"
 Description: "Records the vaccine administered to the patient."
 * extension contains HPVPatientVaccinationRegistrationDate named RegistrationDate 0..1 MS
 * extension[RegistrationDate] ^definition =
@@ -58,7 +58,7 @@ Description: "Records the vaccine administered to the patient."
 Profile: HPVVaccine
 Parent: Medication
 Id: hpv-vaccine-details
-Title: "HPV Vaccine Details"
+Title: "Medication - HPV Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code 1..1
 * code from VSVaccines (extensible)
@@ -68,6 +68,6 @@ Description: "Records the batch number for the vaccine."
 Profile: HPVTargetFacilityEncounter
 Parent: TargetFacilityEncounter
 Id: hpv-target-facility-encounter
-Title: "Target Facility Encounter (HPV)" 
+Title: "Encounter - Target Facility Encounter (HPV)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * subject only Reference(HPVImmunizationPatient)

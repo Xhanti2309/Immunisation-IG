@@ -1,7 +1,7 @@
 Profile: CovaxImmunizationPatient
 Parent: ImmunizationPatient
 Id: covax-immunization-patient
-Title: "COVAX Immunization Patient"
+Title: "Patient - COVAX Immunization Patient"
 Description: "Patient profile for Covax use case"
 * identifier contains
     CN 0..1 MS and
@@ -28,14 +28,14 @@ Description: "Patient profile for Covax use case"
 Profile: COVAXGuardianRelatedPerson
 Parent: GuardianRelatedPerson
 Id: covax-guardian-relation-to-patient
-Title: "Guardian Relation to Patient Profile (COVAX)"
+Title: "Related Person - Guardian Relation to Patient Profile (COVAX)"
 Description: "A guardian to the patient."
 * patient only Reference(CovaxImmunizationPatient)
 
 Profile: PatientOccupationObservation
 Parent: GenericObservation
 Id: patient-occupation
-Title: "Patient Occupation"
+Title: "Observation - Patient Occupation"
 Description: "Records the current occupation for the patient"
 * code = $LNC#85658-3
 * effectivePeriod 0..1 MS
@@ -51,7 +51,7 @@ Description: "Records the current occupation for the patient"
 Profile: PregnancyStatus
 Parent: GenericObservation
 Id: pregnancy-status
-Title: "Pregnancy Status"
+Title: "Observation - Pregnancy Status"
 Description: "Represents whether the patient is currently pregnant."
 * category 1..1
 * category.coding.code = #exam
@@ -64,7 +64,7 @@ Description: "Represents whether the patient is currently pregnant."
 Profile: LactationStatus
 Parent: GenericObservation
 Id: lactation-status
-Title: "Lactation Status"
+Title: "Observation - Lactation Status"
 Description: "Represents whether the patient is currently lactating."
 * category 1..1
 * category.coding.code = #exam
@@ -77,7 +77,7 @@ Description: "Represents whether the patient is currently lactating."
 Profile: CovaxImmunization
 Parent: Vaccines
 Id: covax-immunization
-Title: "Covax Immunization"
+Title: "Immunization - Covax Immunization"
 Description: "Records the vaccine administered to the patient."
 * protocolApplied.doseNumber 1..1
   * obeys DoseNumber-PositiveInt-1
@@ -95,7 +95,7 @@ Description: "Records the vaccine administered to the patient."
 Profile: CovaxVaccine
 Parent: Medication
 Id: covax-vaccine-details
-Title: "Covax Vaccine Details"
+Title: "Medication - Covax Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code 1..1
 * code from VSVaccines (extensible)
@@ -105,7 +105,7 @@ Description: "Records the batch number for the vaccine."
 Profile: UnderlyingCondition
 Parent: Condition
 Id: underlying-condition
-Title: "Underlying Condition"
+Title: "Condition - Underlying Condition"
 Description: "Represents underlying conditions for the patient."
 * code 1..1
 * code from VSUnderlyingCondition (required)
@@ -138,8 +138,8 @@ Description: "Used to capture the actual allergic reaction that is a result of C
 Profile: VaccineNextDoseDate
 Parent: ImmunizationRecommendation
 Id: vaccine-next-dose-date
-Title: "Vaccine Next Dose Date"
-Description: "Used to represent the patient suggested next dose date."
+Title: "Immunization Recommendation - Vaccine Next Dose Date"
+Description: "Used to represent the patient's suggested next dose date."
 * patient 1..1
 * patient only Reference(CovaxImmunizationPatient)
 * date 1..1
@@ -163,7 +163,7 @@ Description: "Used to represent the patient suggested next dose date."
 Profile: MedicalHistory
 Parent: List
 Id: medical-history
-Title: "Medical History"
+Title: "List - Medical History"
 Description: "Documents the medical history for the patient"
 * status = #current
 * title 1..1
@@ -187,7 +187,7 @@ Description: "Documents the medical history for the patient"
 Profile: COVAXTargetFacilityEncounter
 Parent: TargetFacilityEncounter
 Id: covax-target-facility-encounter
-Title: "Target Facility Encounter (COVAX)" 
+Title: "Encounter - Target Facility Encounter (COVAX)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * subject only Reference(CovaxImmunizationPatient)
 

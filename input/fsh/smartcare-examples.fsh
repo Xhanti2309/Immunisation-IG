@@ -1,7 +1,7 @@
 Instance: SmartcareImmunizationPatientExample
 InstanceOf: SmartcareImmunizationPatient
 Usage: #example
-Title: "Immunization Patient in Smartcare"
+Title: "Patient - Smartcare Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier[NUPIN][+].value = "1001-XXGB0-12345-5"
 * identifier[NUPIN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-nupin"
@@ -32,9 +32,9 @@ Description: "Is used to document demographics and other administrative informat
 Instance: SpouseRelatedPersonExample
 InstanceOf: SpouseRelatedPerson
 Usage: #example
-Title: "Spouse Related to Patient"
+Title: "Related Person - Spouse Relation to Patient"
 Description: "The husband or wife, considered in relation to the patient."
-* patient = Reference(ImmunizationPatientExample)
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].family = "Jones"
 * name[=].given[+] = "Mike"
@@ -45,7 +45,7 @@ Description: "The husband or wife, considered in relation to the patient."
 Instance: PatientEducationalLevelObservationExample
 InstanceOf: PatientEducationalLevelObservation
 Usage: #example
-Title: "Highest education level attained"
+Title: "Observation - Highest Education Level Attained"
 Description: "A patient's highest education level attained"
 * status = #final
 * code = $LNC#LL5338-0
@@ -55,27 +55,27 @@ Description: "A patient's highest education level attained"
 * valueCodeableConcept.text = "University undergraduate degree"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 
 Instance: SmartcareTargetFacilityEncounterExample
 InstanceOf: SmartcareTargetFacilityEncounter
 Usage: #example
-Title: "Target Facility Encounter in Smartcare" 
+Title: "Encounter - Target Facility Encounter (Smartcare)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * status = #completed
 * class.coding.code = #AMB
 * class.coding.system = "http://terminology.hl7.org/CodeSystem/v3-ActCode"
-* subject = Reference(ImmunizationPatientExample)
+* subject = Reference(SmartcareImmunizationPatientExample)
 * actualPeriod.start = "2022-12-01"
 * actualPeriod.end = "2023-01-20"
 
 Instance: ChiefAtBirthRelatedPersonExample
 InstanceOf: ChiefAtBirthRelatedPerson
 Usage: #example
-Title: "Chief at Birth"
-Description: "Patient's chief at birth."
-* patient = Reference(ImmunizationPatientExample)
+Title: "Related Person - Chief at Birth"
+Description: "Used to record details of the chief at the time of the Patient's birth."
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].family = "Jones"
 * relationship = $SCT#303119007
@@ -83,7 +83,7 @@ Description: "Patient's chief at birth."
 Instance: DatePatientFirstMarriedObservationExample
 InstanceOf: DatePatientFirstMarriedObservation
 Usage: #example
-Title: "Patient's Date of First Marriage"
+Title: "Observation - Patient's Date of First Marriage"
 Description: "Records the date when the patient was first married"
 * status = #final
 * code = $SCT#365581002
@@ -92,15 +92,15 @@ Description: "Records the date when the patient was first married"
 * valueDateTime = "1983-05-22T16:40:17+02:00"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 
 Instance: PatientFatherRelatedPersonExample
 InstanceOf: PatientFatherRelatedPerson
 Usage: #example
-Title: "Father Relation to Patient"
-Description: "The patient's father."
-* patient = Reference(ImmunizationPatientExample)
+Title: "Related Person - Father Relation to Patient"
+Description: "Used to record the patient's father details."
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Mike"
 * relationship = $PARENT_RELATIONSHIP_CODES#FTH
@@ -116,13 +116,13 @@ Description: "This profile acts as a base profile from which more specific socia
 * effectiveDateTime = "2022-11-30"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 
 Instance: GuardianOccupationObservationExample
 InstanceOf: GuardianOccupationObservation
 Usage: #example
-Title: "Guardian Occupation"
+Title: "Observation - Guardian Occupation"
 Description: "Records the current occupation for the guardian"
 * status = #final
 * code = $LNC#11341-5
@@ -130,16 +130,16 @@ Description: "Records the current occupation for the guardian"
 * effectivePeriod.start = "2017-03-01"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 * valueCodeableConcept.text = "Accounts Manager"
 
 Instance: SmartcareGuardianRelatedPersonExample
 InstanceOf: SmartcareGuardianRelatedPerson
 Usage: #example
-Title: "Guardian Relation to Patient in Smartcare"
-Description: "A guardian to the patient."
-* patient = Reference(ImmunizationPatientExample)
+Title: "Related Person - Guardian Relation to Patient Profile (Smartcare)"
+Description: "Used to record the patient's guardian details."
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Mike"
 * name[=].family = "Smith"
@@ -148,9 +148,9 @@ Description: "A guardian to the patient."
 Instance: PatientMotherRelatedPersonExample
 InstanceOf: PatientMotherRelatedPerson
 Usage: #example
-Title: "Mother Relation to Patient"
-Description: "The patient's mother."
-* patient = Reference(ImmunizationPatientExample)
+Title: "Related Person - Mother Relation to Patient"
+Description: "Used to record the patient's mother details."
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Olivia"
 * name[=].family = "Smith"
@@ -163,7 +163,7 @@ Title: "Generic Relation to Patient"
 Description: "This profile acts as a base profile from which more specific RelatedPerson profiles can be derived."
 * identifier[NRC][+].value = "999999/99/9"
 * identifier[NRC][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/relative-nrc"
-* patient = Reference(ImmunizationPatientExample)
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Olivia"
 * name[=].family = "Smith"
@@ -171,9 +171,9 @@ Description: "This profile acts as a base profile from which more specific Relat
 Instance: RelativeRelatedPersonExample
 InstanceOf: RelativeRelatedPerson
 Usage: #example
-Title: "Relative Relation to Patient"
-Description: "The patient's relative."
-* patient = Reference(ImmunizationPatientExample)
+Title: "Related Person - Relative Relation to Patient"
+Description: "Used to record the patient's relatives details."
+* patient = Reference(SmartcareImmunizationPatientExample)
 * name[+].use = #official
 * name[=].given[+] = "Olivia"
 * name[=].family = "Smith"
@@ -182,7 +182,7 @@ Description: "The patient's relative."
 Instance: SpouseOccupationObservationExample
 InstanceOf: SpouseOccupationObservation
 Usage: #example
-Title: "Spouse Occupation"
+Title: "Observation - Spouse Occupation"
 Description: "Records the current occupation for the spouse"
 * status = #final
 * code = $SCT#447057006
@@ -190,14 +190,14 @@ Description: "Records the current occupation for the spouse"
 * effectivePeriod.start = "2017-03-01"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 * valueCodeableConcept.text = ".NET Programmer"
 
 Instance: PatientHomeLanguageObservationExample
 InstanceOf: PatientHomeLanguageObservation
 Usage: #example
-Title: "Patient's Home Language"
+Title: "Observation - Patient's Home Language"
 Description: "Records the home language for the patient"
 * status = #final
 * code = $SCT#224076006
@@ -205,7 +205,7 @@ Description: "Records the home language for the patient"
 * effectiveDateTime = "2022-11-30"
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* subject = Reference (ImmunizationPatientExample)
+* subject = Reference (SmartcareImmunizationPatientExample)
 * performer = Reference(OrganizationExample)
 * valueCodeableConcept.coding.code = #Chokwe
 * valueCodeableConcept.coding.system = "http://openhie.org/fhir/zambia-immunizations/CodeSystem/cs-home-language"
@@ -214,7 +214,7 @@ Description: "Records the home language for the patient"
 Instance: MedicalInsuranceCompanyExample
 InstanceOf: MedicalInsuranceCompany
 Usage: #example
-Title: "Medical Insurance Company"
+Title: "Organization - Medical Insurance Company"
 Description: "A company that provides insurance to its subscribers that may include healthcare related policies."
 * identifier[XX].value = "medical-insurance-company-1"
 * identifier[XX].system = "http://openhie.org/fhir/zambia-immunizations/identifier/medical-insurance-company"
@@ -227,11 +227,11 @@ Description: "A company that provides insurance to its subscribers that may incl
 Instance: MedicalInsuranceExample
 InstanceOf: MedicalInsurance
 Usage: #example
-Title: "Insurance or Medical Plan"
+Title: "Coverage - Insurance or Medical Plan"
 Description: "Insurance or medical plan details"
 * status = #active
 * kind = #insurance
-* beneficiary = Reference(ImmunizationPatientExample)
+* beneficiary = Reference(SmartcareImmunizationPatientExample)
 * subscriberId.value = "504342245"
 * subscriberId.system = "http://openhie.org/fhir/zambia-immunizations/identifier/beneficiary-insurance-id"
 * policyHolder = Reference(MedicalInsuranceCompanyExample)
@@ -239,11 +239,11 @@ Description: "Insurance or medical plan details"
 Instance: VaccinesExample
 InstanceOf: Vaccines
 Usage: #example
-Title: "Vaccine Administration"
+Title: "Immunization - Vaccine Administration"
 Description: "Records the vaccine administered to the patient."
 * status = #completed
 * vaccineCode = $SCT#82622003
-* patient = Reference(ImmunizationPatientExample)
+* patient = Reference(SmartcareImmunizationPatientExample)
 * occurrenceDateTime = "2022-11-30"
 * encounter = Reference(SmartcareTargetFacilityEncounterExample)
 * protocolApplied.doseNumber = "0"
