@@ -1,7 +1,7 @@
 Profile: SmartcareImmunizationPatient
 Parent: ImmunizationPatient
 Id: smartcare-immunization-patient
-Title: "Patient Profile for Smartcare Immunizations"
+Title: "Patient - Smartcare Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier contains
     NUPIN 1..1
@@ -39,14 +39,14 @@ Description: "Is used to document demographics and other administrative informat
 Profile: SmartcareGuardianRelatedPerson
 Parent: GuardianRelatedPerson
 Id: smartcare-guardian-relation-to-patient
-Title: "Guardian Relation to Patient Profile (Smartcare)"
-Description: "A guardian to the patient."
+Title: "Related Person - Guardian Relation to Patient Profile (Smartcare)"
+Description: "Used to record the patient's guardian details."
 * patient only Reference(SmartcareImmunizationPatient)
 
 Profile: SpouseRelatedPerson
 Parent: RelationToPatient
 Id: spouse-relation-to-patient
-Title: "Spouse Relation to Patient"
+Title: "Related Person - Spouse Relation to Patient"
 Description: "The husband or wife, considered in relation to the patient."
 * relationship 1..1
 * relationship = $PARENT_RELATIONSHIP_CODES#SPS
@@ -58,7 +58,7 @@ Description: "The husband or wife, considered in relation to the patient."
 Profile: PatientEducationalLevelObservation
 Parent: GenericObservation
 Id: patient-educational-level
-Title: "Highest education level attained"
+Title: "Observation - Highest Education Level Attained"
 Description: "A patient's highest education level attained"
 * code = $LNC#LL5338-0
 * effectiveDateTime 0..1 MS
@@ -75,7 +75,7 @@ Description: "A patient's highest education level attained"
 Profile: SpouseOccupationObservation
 Parent: GenericObservation
 Id: spouse-occupation
-Title: "Spouse Occupation"
+Title: "Observation - Spouse Occupation"
 Description: "Records the current occupation for the spouse"
 * code = $SCT#447057006
 * effectivePeriod 0..1 MS
@@ -91,7 +91,7 @@ Description: "Records the current occupation for the spouse"
 Profile: GuardianOccupationObservation
 Parent: GenericObservation
 Id: guardian-occupation
-Title: "Guardian Occupation"
+Title: "Observation - Guardian Occupation"
 Description: "Records the current occupation for the guardian"
 * code = $LNC#11341-5
 * effectivePeriod 0..1 MS
@@ -105,34 +105,26 @@ Description: "Records the current occupation for the guardian"
 * subject only Reference(SmartcareImmunizationPatient)
 
 Profile: DatePatientFirstMarriedObservation
-Parent: Observation
+Parent: GenericObservation
 Id: date-patient-first-married
-Title: "Patient's Date of First Marriage"
+Title: "Observation - Patient's Date of First Marriage"
 Description: "Records the date when the patient was first married"
-* status 1..1
-* code 1..1
 * code = $SCT#365581002
 * effectiveDateTime 0..1 MS
 * effectiveDateTime ^definition =
   "reason(s) why this should be supported."
-* category 1..1
 * category.coding.code = #social-history
 * category.coding.system  = "http://terminology.hl7.org/CodeSystem/observation-category"
-* encounter 1..1
 * encounter only Reference(SmartcareTargetFacilityEncounter)
-* subject 1..1
 * subject only Reference(SmartcareImmunizationPatient)
-* performer 0..*
-* performer ^definition =
-  "reason(s) why this should be supported."
 * valueDateTime 1..1
 * value[x] only dateTime
 
 Profile: PatientMotherRelatedPerson
 Parent: RelationToPatient
 Id: mother-relation-to-patient
-Title: "Mother Relation to Patient"
-Description: "The patient's mother."
+Title: "Related Person - Mother Relation to Patient"
+Description: "Used to record the patient's mother's details."
 * relationship 1..1
 * relationship = $PARENT_RELATIONSHIP_CODES#MTH
 * name.given 1..1
@@ -142,8 +134,8 @@ Description: "The patient's mother."
 Profile: PatientFatherRelatedPerson
 Parent: RelationToPatient
 Id: father-relation-to-patient
-Title: "Father Relation to Patient"
-Description: "The patient's father."
+Title: "Related Person - Father Relation to Patient"
+Description: "Used to record the patient's father's details."
 * relationship 1..1
 * relationship = $PARENT_RELATIONSHIP_CODES#FTH
 * name.given 1..1
@@ -152,8 +144,8 @@ Description: "The patient's father."
 Profile: RelativeRelatedPerson
 Parent: RelationToPatient
 Id: relative-relation-to-patient
-Title: "Relative Relation to Patient"
-Description: "The patient's relative."
+Title: "Related Person - Relative Relation to Patient"
+Description: "Used to record the patient's relatives details."
 * relationship 1..1
 * relationship = $PARENT_RELATIONSHIP_CODES#FAMMEMB
 * patient only Reference(SmartcareImmunizationPatient)
@@ -161,8 +153,8 @@ Description: "The patient's relative."
 Profile: ChiefAtBirthRelatedPerson
 Parent: RelationToPatient
 Id: chief-at-birth-relation-to-patient
-Title: "Chief at Birth"
-Description: "Patient's chief at birth."
+Title: "Related Person - Chief at Birth"
+Description: "Used to record details of the chief at the time of the Patient's birth."
 * relationship 1..1
 * relationship = $SCT#303119007
 * name.family 1..1
@@ -171,7 +163,7 @@ Description: "Patient's chief at birth."
 Profile: PatientHomeLanguageObservation
 Parent: GenericObservation
 Id: patient-home-language
-Title: "Patient's Home Language"
+Title: "Observation - Patient's Home Language"
 Description: "Records the home language for the patient"
 * code = $SCT#224076006
 * effectiveDateTime 0..1 MS
@@ -188,7 +180,7 @@ Description: "Records the home language for the patient"
 Profile: MedicalInsurance
 Parent: Coverage
 Id: medical-insurance
-Title: "Insurance or Medical Plan"
+Title: "Coverage - Insurance or Medical Plan"
 Description: "Insurance or medical plan details"
 * status 1..1
 * kind 1..1
@@ -204,7 +196,7 @@ Description: "Insurance or medical plan details"
 Profile: MedicalInsuranceCompany
 Parent: Organization
 Id: medical-insurance-company
-Title: "Medical Insurance Company"
+Title: "Organization - Medical Insurance Company"
 Description: "A company that provides insurance to its subscribers that may include healthcare related policies."
 * identifier 0..*
 * identifier ^definition =
@@ -228,6 +220,6 @@ Description: "A company that provides insurance to its subscribers that may incl
 Profile: SmartcareTargetFacilityEncounter
 Parent: TargetFacilityEncounter
 Id: smartcare-target-facility-encounter
-Title: "Target Facility Encounter (Smartcare)" 
+Title: "Encounter - Target Facility Encounter (Smartcare)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * subject only Reference(SmartcareImmunizationPatient)

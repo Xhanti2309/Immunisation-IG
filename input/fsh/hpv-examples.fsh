@@ -1,7 +1,7 @@
 Instance: HPVImmunizationPatientExample
 InstanceOf: HPVImmunizationPatient
 Usage: #example
-Title: "Immunization Patient in HPV"
+Title: "Patient - HPV Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier[CN][+].value = "CN0000000"
 * identifier[CN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-card-number"
@@ -39,7 +39,7 @@ Description: "Is used to document demographics and other administrative informat
 Instance: HPVGuardianRelatedPersonExample
 InstanceOf: HPVGuardianRelatedPerson
 Usage: #example
-Title: "Guardian Relation to Patient in HPV"
+Title: "Related Person - Guardian Relation to Patient Profile (HPV)"
 Description: "A guardian to the patient."
 * patient = Reference(HPVImmunizationPatientExample)
 * name[+].use = #official
@@ -50,7 +50,7 @@ Description: "A guardian to the patient."
 Instance: HPVImmunocomprommisedExample
 InstanceOf: HPVImmunocomprommised
 Usage: #example
-Title: "HPV Immunocomprommised"
+Title: "Observation - HPV Immunocomprommised"
 Description: "This is to document whether the HPV patient has been observed to be immunocomprommised."
 * status = #final
 * category.coding.code = #laboratory
@@ -66,7 +66,7 @@ Description: "This is to document whether the HPV patient has been observed to b
 Instance: HPVTargetFacilityEncounterExample
 InstanceOf: HPVTargetFacilityEncounter
 Usage: #example
-Title: "Target Facility Encounter in HPV" 
+Title: "Encounter - Target Facility Encounter (HPV)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * status = #completed
 * class.coding.code = #AMB
@@ -79,7 +79,7 @@ Description: "Represents the current facility at which the patient is receiving 
 Instance: HPVImmunizationExample
 InstanceOf: HPVImmunization
 Usage: #example
-Title: "HPV Immunization Example"
+Title: "Immunization - HPV Immunization"
 Description: "Records the vaccine administered to the patient."
 * status = #completed
 * occurrenceDateTime = "2024-01-31"
@@ -94,7 +94,7 @@ Description: "Records the vaccine administered to the patient."
 Instance: HPVVaccineExample
 InstanceOf: HPVVaccine
 Usage: #example
-Title: "HPV Vaccine Details"
+Title: "Medication - HPV Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code = $ICD11#J07BM01
 * batch.lotNumber = "123"
@@ -102,7 +102,7 @@ Description: "Records the batch number for the vaccine."
 Instance: HPVOrganizationPerformingVaccineExample
 InstanceOf: ServiceProvider
 Usage: #example
-Title: "Administering Organization in HPV"
+Title: "Organization - Administering Organization in HPV"
 Description: "Indicates the organization where the vaccince was administered."
 * type.coding.system = "http://openhie.org/fhir/zambia-immunizations/CodeSystem/cs-proprietary-hpv-vaccination-site"
 * type.coding.code = #Community

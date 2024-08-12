@@ -1,7 +1,7 @@
 Profile: ImmunizationPatient
 Parent: Patient
 Id: immunization-patient
-Title: "Generic Patient Profile for Immunizations"
+Title: "Patient - Generic Patient Profile for Immunizations"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier 1..*
 * identifier ^slicing.discriminator.type = #value
@@ -107,7 +107,7 @@ Description: "Is used to document demographics and other administrative informat
 Profile: ServiceProvider
 Parent: Organization
 Id: healthcare-service-provider
-Title: "Healthcare Service Provider Profile"
+Title: "Organization - Healthcare Service Provider Profile"
 Description: "An organization that provides healthcare services."
 * identifier 0..*
 * identifier ^definition =
@@ -133,7 +133,7 @@ Description: "An organization that provides healthcare services."
 Profile: RelationToPatient
 Parent: RelatedPerson
 Id: relation-to-patient
-Title: "Relation to Patient Profile"
+Title: "Related Person - Relation to Patient Profile"
 Description: "This profile acts as a base profile from which more specific RelatedPerson profiles can be derived."
 * identifier 0..* MS
 * identifier ^definition =
@@ -184,7 +184,7 @@ Description: "This profile acts as a base profile from which more specific Relat
 Profile: GuardianRelatedPerson
 Parent: RelationToPatient
 Id: guardian-relation-to-patient
-Title: "Guardian Relation to Patient Profile"
+Title: "Related Person - Guardian Relation to Patient Profile"
 Description: "A guardian to the patient."
 * identifier 0..*
 * identifier ^slicing.discriminator.type = #value
@@ -209,7 +209,7 @@ Description: "A guardian to the patient."
 Profile: TargetFacilityEncounter
 Parent: Encounter
 Id: target-facility-encounter
-Title: "Target Facility Encounter" 
+Title: "Encounter - Target Facility Encounter" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * status 1..1
 * class 1..1
@@ -225,7 +225,7 @@ Description: "Represents the current facility at which the patient is receiving 
 Profile: GenericObservation
 Parent: Observation
 Id: generic-social-history-observation-profile
-Title: "Generic Observation Profile"
+Title: "Observation - Generic Observation Profile"
 Description: "This profile acts as a base profile from which more observation profiles can be derived."
 * status 1..1
 * code 1..1
@@ -240,7 +240,7 @@ Description: "This profile acts as a base profile from which more observation pr
 Profile: Vaccines
 Parent: Immunization
 Id: vaccine-administration
-Title: "Generic Vaccine Administration Profile"
+Title: "Immunization - Generic Vaccine Administration Profile"
 Description: "Records the vaccine administered to the patient."
 * status 1..1
 * vaccineCode 1..1

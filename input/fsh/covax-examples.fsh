@@ -1,7 +1,7 @@
 Instance: CovaxImmunizationPatientExample
 InstanceOf: CovaxImmunizationPatient
 Usage: #example
-Title: "Immunization Patient in Covax"
+Title: "Patient - COVAX Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier[CN][+].value = "CN0000000"
 * identifier[CN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-card-number"
@@ -39,7 +39,7 @@ Description: "Is used to document demographics and other administrative informat
 Instance: RelatedPersonGuardianCovaxExample
 InstanceOf: COVAXGuardianRelatedPerson
 Usage: #example
-Title: "Guardian Relation to Patient Profile (COVAX)"
+Title: "Related Person - Guardian Relation to Patient Profile (COVAX)"
 Description: "A guardian to the patient."
 * identifier[PN][+].value = "PN15685241"
 * identifier[PN][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/passport-number"
@@ -52,7 +52,7 @@ Description: "A guardian to the patient."
 Instance: CovaxTargetFacilityEncounterExample
 InstanceOf: COVAXTargetFacilityEncounter
 Usage: #example
-Title: "Target Facility Encounter in Covax" 
+Title: "Encounter - Target Facility Encounter (COVAX)" 
 Description: "Represents the current facility at which the patient is receiving health services."
 * status = #completed
 * class.coding.code = #AMB
@@ -65,7 +65,7 @@ Description: "Represents the current facility at which the patient is receiving 
 Instance: PatientOccupationObservationExample
 InstanceOf: PatientOccupationObservation
 Usage: #example
-Title: "Patient Occupation"
+Title: "Observation - Patient Occupation"
 Description: "Records the current occupation for the patient"
 * status = #final
 * code = $LNC#85658-3
@@ -80,7 +80,7 @@ Description: "Records the current occupation for the patient"
 Instance: PregnancyStatusExample
 InstanceOf: PregnancyStatus
 Usage: #example
-Title: "Pregnancy Status"
+Title: "Observation - Pregnancy Status"
 Description: "Represents whether the patient is currently pregnant."
 * status = #final
 * category.coding.code = #exam
@@ -96,7 +96,7 @@ Description: "Represents whether the patient is currently pregnant."
 Instance: LactationStatusExample
 InstanceOf: LactationStatus
 Usage: #example
-Title: "Lactation Status"
+Title: "Observation - Lactation Status"
 Description: "Represents whether the patient is currently lactating."
 * status = #final
 * category.coding.code = #exam
@@ -112,7 +112,7 @@ Description: "Represents whether the patient is currently lactating."
 Instance: CovaxImmunizationExample
 InstanceOf: CovaxImmunization
 Usage: #example
-Title: "Covax Immunization Example"
+Title: "Immunization - Covax Immunization"
 Description: "Records the vaccine administered to the patient."
 * status = #completed
 * occurrenceDateTime = "2024-01-31"
@@ -127,7 +127,7 @@ Description: "Records the vaccine administered to the patient."
 Instance: CovaxVaccineExample
 InstanceOf: CovaxVaccine
 Usage: #example
-Title: "Covax Vaccine Details"
+Title: "Medication - Covax Vaccine Details"
 Description: "Records the batch number for the vaccine."
 * code = $ICD11#XM1G90
 * batch.lotNumber = "123"
@@ -151,8 +151,8 @@ Description: "Used to capture the actual allergic reaction that is a result of C
 Instance: VaccineNextDoseDateExample
 InstanceOf: VaccineNextDoseDate
 Usage: #example
-Title: "Vaccine Next Dose Date"
-Description: "Used to represent the patient suggested next dose date."
+Title: "Immunization Recommendation - Vaccine Next Dose Date"
+Description: "Used to represent the patient's suggested next dose date."
 * patient = Reference(CovaxImmunizationPatientExample)
 * date = "2024-01-25"
 * authority = Reference(OrganizationExample)
@@ -166,8 +166,8 @@ Description: "Used to represent the patient suggested next dose date."
 Instance: HIVConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "HIV Condition"
-Description: "Records whether the patient has HIV condition."
+Title: "Condition - HIV Condition"
+Description: "Records the patient's HIV condition."
 * code = $LNC#LA28577-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -180,8 +180,8 @@ Description: "Records whether the patient has HIV condition."
 Instance: DiabetesMellitusConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Diabetes Mellitus Condition"
-Description: "Records whether the patient has diabetes mellitus condition."
+Title: "Condition - Diabetes Mellitus Condition"
+Description: "Records the patient's diabetes mellitus condition."
 * code = $LNC#LA25673-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -194,8 +194,8 @@ Description: "Records whether the patient has diabetes mellitus condition."
 Instance: ChronicLungDiseaseConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Chronic Lung Disease Condition"
-Description: "Records whether the patient has chronic lung disease condition."
+Title: "Condition - Chronic Lung Disease Condition"
+Description: "Records the patient's chronic lung disease condition."
 * code = $LNC#LA22199-6
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -208,8 +208,8 @@ Description: "Records whether the patient has chronic lung disease condition."
 Instance: HeartDiseaseConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Heart Disease Condition"
-Description: "Records whether the patient has heart disease condition."
+Title: "Condition - Heart Disease Condition"
+Description: "Records the patient's heart disease condition."
 * code = $LNC#LA25639-8
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -222,8 +222,8 @@ Description: "Records whether the patient has heart disease condition."
 Instance: HypertensionConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Hypertension Condition"
-Description: "Records whether the patient has hypertension condition."
+Title: "Condition - Hypertension Condition"
+Description: "Records the patient's hypertension condition."
 * code = $LNC#LA25642-2
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -236,8 +236,8 @@ Description: "Records whether the patient has hypertension condition."
 Instance: SkinConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Skin Condition"
-Description: "Records whether the patient has skin condition."
+Title: "Condition - Skin Condition"
+Description: "Records the patient's skin condition."
 * code = $LNC#LA22098-0
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -250,8 +250,8 @@ Description: "Records whether the patient has skin condition."
 Instance: MusculoskeletalConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Musculoskeletal Condition"
-Description: "Records whether the patient has musculoskeletal condition."
+Title: "Condition - Musculoskeletal Condition"
+Description: "Records the patient's musculoskeletal condition."
 * code = $LNC#LA25692-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -264,8 +264,8 @@ Description: "Records whether the patient has musculoskeletal condition."
 Instance: VascularConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Vascular Condition"
-Description: "Records whether the patient has vascular condition."
+Title: "Condition - Vascular"
+Description: "Records the patient's vascular condition."
 * code = $SCT#27550009
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -278,8 +278,8 @@ Description: "Records whether the patient has vascular condition."
 Instance: CancerConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Cancer Condition"
-Description: "Records whether the patient has cancer condition."
+Title: "Condition - Cancer"
+Description: "Records the patient's cancer condition."
 * code = $LNC#54532-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -292,8 +292,8 @@ Description: "Records whether the patient has cancer condition."
 Instance: GastrointestinalConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Gastrointestinal Condition"
-Description: "Records whether the patient has gastrointestinal condition."
+Title: "Condition - Gastrointestinal"
+Description: "Records the patient's gastrointestinal condition."
 * code = $LNC#54534-3
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -306,8 +306,8 @@ Description: "Records whether the patient has gastrointestinal condition."
 Instance: NeuromuscularConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Neuromuscular Condition"
-Description: "Records whether the patient has neuromuscular condition."
+Title: "Condition - Neuromuscular"
+Description: "Records the patient's neuromuscular condition."
 * code = $LNC#LP31403-6
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -320,8 +320,8 @@ Description: "Records whether the patient has neuromuscular condition."
 Instance: ImmunologyConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Immunology Condition"
-Description: "Records whether the patient has immunology condition."
+Title: "Condition - Immunology"
+Description: "Records the patient's immunology condition."
 * code = $LNC#LP345046-9
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -334,8 +334,8 @@ Description: "Records whether the patient has immunology condition."
 Instance: EndocrineConditionExample
 InstanceOf: UnderlyingCondition
 Usage: #example
-Title: "Endocrine Condition"
-Description: "Records whether the patient has endocrine condition."
+Title: "Condition - Endocrine"
+Description: "Records the patient's endocrine condition."
 * code = $LNC#LP56737-7
 * category.coding.code = #problem-list-item
 * category.coding.system = "http://terminology.hl7.org/CodeSystem/condition-category"
@@ -348,7 +348,7 @@ Description: "Records whether the patient has endocrine condition."
 Instance: MedicalHistoryExample
 InstanceOf: MedicalHistory
 Usage: #example
-Title: "Medical History"
+Title: "List - Medical History"
 Description: "Documents the medical history for the patient"
 * code = $LNC#LP73189-0
 * mode = #working
@@ -364,7 +364,7 @@ Description: "Documents the medical history for the patient"
 * entry[+].item = Reference(SkinConditionExample)
 * entry[+].item = Reference(NeuromuscularConditionExample)
 
-Instance: VaccinationAllergicReactionExample
+Instance: VaccinationAllergicReactionExample 
 InstanceOf: VaccinationAllergicReaction
 Usage: #example
 Title: "Allergy Intolerance - Vaccination Allergic Reaction"

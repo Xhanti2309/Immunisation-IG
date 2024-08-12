@@ -1,7 +1,7 @@
 Instance: ImmunizationPatientExample
 InstanceOf: ImmunizationPatient
 Usage: #example
-Title: "Generic Immunization Patient"
+Title: "Patient - Generic Immunization Patient"
 Description: "Is used to document demographics and other administrative information about an individual receiving care or other health-related services."
 * identifier[NRC][+].value = "999999/99/9"
 * identifier[NRC][=].system = "http://openhie.org/fhir/zambia-immunizations/identifier/patient-nrc"
@@ -27,7 +27,7 @@ Description: "Is used to document demographics and other administrative informat
 Instance: OrganizationExample
 InstanceOf: ServiceProvider
 Usage: #example
-Title: "Healthcare Service Provider"
+Title: "Organization - Healthcare Service Provider"
 Description: "An organization that provides healthcare services."
 * identifier[XX].value = "facility-1"
 * identifier[XX].system = "http://openhie.org/fhir/zambia-immunizations/identifier/healthcare-service-provider"
