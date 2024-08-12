@@ -64,9 +64,9 @@ Description: "Is used to document demographics and other administrative informat
     "reason(s) why this should be supported."
 
 * link ^slicing.discriminator[+].type = #profile
-* link ^slicing.discriminator[=].path = "resolve()"
+* link ^slicing.discriminator[=].path = "other.resolve()"
 * link ^slicing.discriminator[+].type = #type
-* link ^slicing.discriminator[=].path = "type"
+* link ^slicing.discriminator[=].path = "other.type"
 * link ^slicing.rules = #open
 * link ^slicing.ordered = false
 * link ^slicing.description = "Slicing link based on the type of profile."
