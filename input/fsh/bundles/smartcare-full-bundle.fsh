@@ -1,7 +1,7 @@
-Profile: SmartcareFullBundle
+Profile: SmartcareBundle
 Parent: Bundle
-Id: smartcare-full-bundle
-Title: "Smartcare Full Bundle"
+Id: smartcare-bundle
+Title: "Bundle - Smartcare"
 Description: "This bundle contains all of the Smartcare resources."
 * type 1..1
 * type = #transaction
@@ -21,18 +21,18 @@ Description: "This bundle contains all of the Smartcare resources."
     Encounter 1..1 and
     Spouse 0..1 MS and
     ChiefAtBirth 0..1 MS and
-    Guardian 0..1 MS and
+    Guardian 0..* MS and
     Mother 0..1 MS and
-    Relative 0..1 MS and
+    Relative 0..* MS and
     Father 0..1 MS and
     EducationalLevel 0..1 MS and
     DateFirstMarried 0..1 MS and
-    GuardianOccupation 0..1 MS and
-    SpouseOccupation 0..1 MS and
-    HomeLanguage 0..1 MS and
+    GuardianOccupation 0..* MS and
+    SpouseOccupation 0..* MS and
+    HomeLanguage 0..* MS and
     MedicalInsuranceCompany 0..1 MS and
     MedicalInsurance 0..1 MS and
-    Vaccines 1..1
+    Vaccines 1..*
 
 * insert BundleEntry(SmartcareImmunizationPatient, Patient, reason why this should be supported.)
 * insert BundleEntry(TargetFacilityEncounter, Encounter, reason why this should be supported.)

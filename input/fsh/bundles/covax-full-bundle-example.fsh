@@ -1,7 +1,7 @@
 Instance: Covax
-InstanceOf: CovaxFullBundle
+InstanceOf: CovaxBundle
 Usage: #example
-Title: "Covax Bundle"
+Title: "Bundle - Covax"
 Description: "A bundle containing all Covax FHIR resources."
 * type = #transaction
 * timestamp = "2024-02-18T09:30:00+02:00"

@@ -1,7 +1,7 @@
-Profile: HPVFullBundle
+Profile: HPVBundle
 Parent: Bundle
-Id: hpv-full-bundle
-Title: "HPV Full Bundle"
+Id: hpv-bundle
+Title: "Bundle - HPV"
 Description: "This bundle contains all of the HPV resources."
 * type 1..1
 * type = #transaction
@@ -19,11 +19,11 @@ Description: "This bundle contains all of the HPV resources."
 * entry contains
     Patient 1..1 and
     Encounter 1..1 and
-    Guardian 0..1 MS and
+    Guardian 0..* MS and
     Immunocomprommised 0..1 MS and
-    Medication 0..1 MS and
-    Vaccines 1..1 and 
-    SiteType 0..1 MS
+    Medication 1..* MS and
+    Vaccines 1..* and 
+    SiteType 0..* MS
 
 * insert BundleEntry(HPVImmunizationPatient, Patient, reason why this should be supported.)
 * insert BundleEntry(TargetFacilityEncounter, Encounter, reason why this should be supported.)
