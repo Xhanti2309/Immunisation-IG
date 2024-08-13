@@ -1,7 +1,7 @@
 Instance: Smartcare
-InstanceOf: SmartcareFullBundle
+InstanceOf: SmartcareBundle
 Usage: #example
-Title: "Smartcare Bundle"
+Title: "Bundle - Smartcare"
 Description: "A bundle containing all Smartcare FHIR resources."
 * type = #transaction
 * timestamp = "2024-02-18T09:30:00+02:00"

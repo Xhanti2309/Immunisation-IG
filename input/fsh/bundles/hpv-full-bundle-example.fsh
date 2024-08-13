@@ -1,7 +1,7 @@
 Instance: HPVFullBundleExample
-InstanceOf: HPVFullBundle
+InstanceOf: HPVBundle
 Usage: #example
-Title: "HPV Bundle"
+Title: "Bundle - HPV"
 Description: "A bundle containing all HPV FHIR resources."
 * type = #transaction
 * timestamp = "2024-02-18T09:30:00+02:00"
